@@ -1,0 +1,76 @@
+.baraja {
+  width: 7.5in;
+  margin: 20px auto;
+}
+
+.carta {
+  opacity: 0.7;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  width: 2.47in;
+  height: 3.5in;
+  transition: all 0.5s;
+}
+
+.carta>div {
+
+  width: 2.5in;
+  height: 3.5in;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.reverso,.anverso{
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.reverso {
+  background-image: url('./examples/ud4/ex12/img/reverso_original.png');
+  z-index: 1;
+  transition: all 0.5s;
+}
+
+.anverso {
+  z-index: 0;
+  transition: all 0.5s;
+}
+
+#pikachu .anverso {
+  background-image: url('./examples/ud4/ex12/img/pikachu.png');
+}
+
+#mimikyu .anverso {
+  background-image: url('./examples/ud4/ex12/img/mimikyu.png');
+}
+
+#mew .anverso {
+  background-image: url('./examples/ud4/ex12/img/mew.png');
+}
+
+.carta:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.carta.girada:hover {
+  cursor: default;
+}
+
+.girada {
+  opacity: 1;
+  transform: rotateY(180deg);
+}
+
+.girada .anverso {
+  z-index: 1;
+}
+
+.girada .reverso {
+  z-index: 0;
+}
+
+.correcta{
+  
+}

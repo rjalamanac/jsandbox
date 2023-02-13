@@ -1,0 +1,218 @@
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.catalogue {
+    position: relative;
+}
+
+section .catalogue .card {
+    position: relative;
+    width: 320px;
+    height: 450px;
+    background: #232323;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-left: 0;
+    margin: auto;
+}
+
+.catalogue .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #9bdc28;
+    clip-path: circle(150px at 80% 20%);
+    transition: .5s ease-in-out;
+}
+
+.catalogue .card:hover::before {
+    clip-path: circle(300px at 80% -20%);
+}
+
+.catalogue .card::after {
+    content: 'Orange';
+    position: absolute;
+    top: 30%;
+    left: -20%;
+    font-size: 12em;
+    font-weight: 800;
+    font-style: italic;
+    color: rgba(255,255,255, .04);
+}
+
+.catalogue .card .imgBx {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10000;
+    width: 100%;
+    height: 190px;
+    transition: .5s;
+    z-index: 1;
+}
+
+.catalogue .card:hover .imgBx {
+    top: 0%;
+    transform: translateY(0%);
+}
+
+.catalogue .card .imgBx img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 220px;
+}
+
+.catalogue .card .contentBx {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: 1s;
+    z-index: 1;
+}
+
+.catalogue .card:hover .contentBx {
+    height: 240px;
+}
+
+.catalogue .card .contentBx h2 {
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.catalogue .card .contentBx .size, .catalogue .card .contentBx .unidades, .catalogue .card .contentBx .precio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    transition: .5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.catalogue .card:hover .contentBx .size {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: .5s;
+}
+
+.catalogue .card:hover .contentBx .unidades {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: .6s;
+}
+
+.catalogue .card:hover .contentBx .precio {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: .7s;
+}
+
+.catalogue .card .contentBx .size h3, .catalogue .card .contentBx .unidades h3, .catalogue .card .contentBx .precio h3 {
+    color: #fff;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 10px;
+}
+
+.catalogue .card .contentBx .size span {
+    width: 2rem;
+    height: 2rem;
+    text-align: center;
+    line-height: 2rem;
+    font-size: 14px;
+    display: inline-block;
+    color: #111;
+    background: #fff;
+    margin: 0 5px;
+    transition: .5s;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.catalogue .card .contentBx .size span:hover {
+    background: var(--primary-color);
+    color: var(--text-white);
+}
+
+.catalogue .card .contentBx .size span.active {
+    background: var(--primary-color);
+    color: var(--text-white);
+}
+
+.catalogue .card .contentBx .unidades span {
+    width: 20px;
+    height: 20px;
+    background: #ff0;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.catalogue .card .contentBx .unidades span:nth-child(2) {
+    background: var(--quaternary-color);
+}
+.catalogue .card .contentBx .unidades span:nth-child(4) {
+    background: var(--primary-color);
+    line-height: 20px;
+}
+.catalogue .card .contentBx .unidades span:nth-child(2):hover {
+    background: var(--quaternary-color-hover);
+}
+.catalogue .card .contentBx .unidades span:nth-child(4):hover {
+    background: var(--primary-color-hover);
+}
+
+.catalogue .card .contentBx .unidades input {
+    text-align: center;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    border-radius: 4px;
+    border: none;
+}
+
+.catalogue .card .contentBx .precio span {
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    border-radius: 4px;
+    background: rgb(255, 255, 255);
+    margin: 0 5px;
+    cursor: default;
+}
+
+.catalogue .card .contentBx a {
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity .5s, transform .5s
+}
+
+.catalogue .card:hover .contentBx a {
+    opacity: 1;
+    transform: translateY(0px);
+    transition-delay: .75s;
+}

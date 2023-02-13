@@ -1,0 +1,173 @@
+/**/
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5rem;
+}
+
+.hourglass {
+  width: 10rem;
+  -webkit-animation: rotate 14s linear forwards;
+          animation: rotate 14s linear forwards;
+}
+
+.progress {
+  width: 80%;
+  height: 8rem;
+  border: 4px solid aquamarine;
+  border-radius: 5rem;
+  overflow: hidden;
+}
+
+.progress__content {
+  height: 100%;
+  -webkit-animation: progress 14s linear forwards;
+          animation: progress 14s linear forwards;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+  }
+}
+
+@-webkit-keyframes progress {
+  0% {
+    width: 0%;
+    background: #2586f5;
+  }
+  13% {
+    background: #2586f5;
+  }
+  14% {
+    width: 20%;
+    background: #e7f525;
+  }
+  27% {
+    background: #e7f525;
+  }
+  28% {
+    width: 40%;
+    background: #7525f5;
+  }
+  41% {
+    background: #7525f5;
+  }
+  42% {
+    width: 50%;
+    background: #acf525;
+  }
+  55% {
+    background: #acf525;
+  }
+  56% {
+    width: 70%;
+    background: #eb1b1b;
+  }
+  69% {
+    background: #eb1b1b;
+  }
+  70% {
+    width: 20%;
+    background: #2586f5;
+  }
+  83% {
+    background: #2586f5;
+  }
+  84% {
+    width: 80%;
+    background: #24a02a;
+  }
+  100% {
+    width: 100%;
+    background: #24a02a;
+  }
+}
+
+@keyframes progress {
+  0% {
+    width: 0%;
+    background: #2586f5;
+  }
+  13% {
+    background: #2586f5;
+  }
+  14% {
+    width: 20%;
+    background: #e7f525;
+  }
+  27% {
+    background: #e7f525;
+  }
+  28% {
+    width: 40%;
+    background: #7525f5;
+  }
+  41% {
+    background: #7525f5;
+  }
+  42% {
+    width: 50%;
+    background: #acf525;
+  }
+  55% {
+    background: #acf525;
+  }
+  56% {
+    width: 70%;
+    background: #eb1b1b;
+  }
+  69% {
+    background: #eb1b1b;
+  }
+  70% {
+    width: 20%;
+    background: #2586f5;
+  }
+  83% {
+    background: #2586f5;
+  }
+  84% {
+    width: 80%;
+    background: #24a02a;
+  }
+  100% {
+    width: 100%;
+    background: #24a02a;
+  }
+}
+/*# sourceMappingURL=style.css.map */

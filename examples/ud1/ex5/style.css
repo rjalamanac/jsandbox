@@ -1,0 +1,86 @@
+body{
+  background-color: #59abe3;
+  margin: 0;
+  font-family: "Verdana", sans-serif;
+}
+
+form{
+  background-color: #e6e6e6;
+  width: 310px;
+  height: 410px;
+  padding: 30px;
+  border-radius: 8px;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 auto;
+
+  /* offset-x | offset-y | color */
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+}
+
+form h2{
+  color: #78788c;
+  margin: 0;
+
+  padding-bottom: 10px;
+  border-bottom: 3px solid #78788c;
+  display: inline-block;
+  padding-right: 87px;
+  font-weight: normal;
+}
+
+form p{
+  border-bottom: 2px solid #bebed2;
+  margin: 30px 0;
+}
+form label{
+  color: #6c6c6c;
+}
+
+form input{
+  border: none;
+  background-color: transparent;
+  padding: 12px 0;
+  text-indent: 10px;
+  width: 100%;
+}
+
+form button{
+  border: 2px solid #78788c;
+  background-color: transparent;
+  padding: 8px 13px;
+  color: #78788c;
+  float: right;
+  font-family: "Verdana", sans-serif;
+  font-size: 14px;
+}
+
+form div{
+  background-color: #50505a;
+  color: white;
+  padding: 16px 14px;
+  border-radius: 8px;
+  position: absolute;
+  right: -20px;
+  width: 324px;
+  bottom: -15px;
+  font-family: "Verdana", sans-serif;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+  font-size: 14px;
+}
+
+form div .fa{
+  font-size: 13px;
+}
+.fa{
+  margin-right: 4px;
+  
+}
+
+.fa:last-of-type{
+  margin-left: 18px;
+}

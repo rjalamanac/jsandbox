@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  height: 50vh;
+}
+
+#parallax {
+  perspective: 100px;
+  overflow-x: hidden;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 0;
+  bottom: 0;
+  margin-left: -900px;
+}
+
+.parallax {
+  background-repeat: no-repeat;
+  background-position: bottom;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+
+#layer_2 {
+  background-image: url("./examples/ud5/ex6/img/plano5.png");
+  transform: translateZ(-200px) scale(3);
+}
+
+#layer_3 {
+  background-image: url("./examples/ud5/ex6/img/4.png");
+  transform: translateZ(-150px) scale(2.5);
+}
+
+#layer_4 {
+  background-image: url("./examples/ud5/ex6/img/3.png");
+  transform: translateZ(-100px) scale(2);
+}
+
+#layer_5 {
+  background-image: url("./examples/ud5/ex6/img/2.png");
+  transform: translateZ(-50px) scale(1.5);
+}
+
+#layer_6 {
+  background-image: url("./examples/ud5/ex6/img/1.png");
+  transform: translateZ(0px) scale(1);
+}
+
+#cover {
+  background-color: #2D112B;
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  right: 0;
+}

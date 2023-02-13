@@ -1,0 +1,216 @@
+html{
+    background-color: #232323;
+}
+body{
+    color: black;
+    margin: 0;
+    background-color: #fafafa;
+    font-family: "Segoe UI";
+    padding-bottom: 40px;
+}
+#barra{
+    font-size: 30px;
+    border-bottom: 1px solid #dcdcdc;
+    padding: 15px;
+    background-color: white;
+    
+}
+#barra * {
+    vertical-align: middle;
+}
+#lupa{
+    position: relative;
+    left: 50.3%;
+    font-size: 12px;
+    color: #a5a7aa;
+}
+#iconoInstagram{
+    border-right: 1px solid black;
+    padding-right: 15px;
+    margin-left:17%;
+    font-size: 28px;
+}
+#nombreInstagram{
+    padding-top: 12px;
+    padding-left: 10px;
+    margin-right: 15%;
+    width: 100px;
+}
+
+#busqueda{
+    border: 1px #e6e6e6 solid;
+    border-radius: 2px;
+    padding: 6px;
+    background-color: #fafafa;
+    color: #9fa1a6;
+    text-align: center;
+    width: 200px;
+}
+
+#publicacion{
+    margin: 0 auto;
+    border: 1px solid #e8e8e8;
+    border-radius: 3px;
+    width: 50%;
+    height: 602px;
+    width: 813px;
+    background-color: white;
+    margin-top: 40px;
+}
+
+#foto{
+    height: 100%;
+    float: left;
+}
+#iconoEtiquetados{
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+    font-size: 15px;
+    opacity: 0.8;
+}
+.fa-user{
+    color: white;
+}
+#info{
+    height: 100%;
+    width: 331px;
+    float: left;
+    font-size: 14px;
+}
+#localizacion{
+    font-size: 12px;
+}
+#textoAutor{
+    display: inline-block;
+}
+#textoAutor p{
+    margin: 0;
+}
+.fotoPerfil{
+    border-radius: 50%;
+    height: 35px;
+    margin-right: 10px;
+    border: 2px transparent solid;
+}
+
+#foto img{
+    width: 482px;    
+}
+#autor{
+    padding: 15px;
+    border-bottom: 1px #dddddd solid;
+}
+
+.fa-check-circle{
+    color: #3897f0;
+}
+
+.fa-ellipsis-h{
+    position: relative;
+    left: 35%;
+    vertical-align: middle;
+}
+#opciones{
+    position: relative;
+    right: 0;
+    top: -12px;
+}
+
+#nombreAutor{
+    font-weight: 600;
+}
+#seguir {
+    color: #3897f0;
+    font-weight: 600;
+}
+#comentarios{
+    margin-bottom: 134px;
+}
+.comentario{
+    padding: 15px;
+    padding-top: 6px;
+}
+.comentario .fotoPerfil{
+    display: inline-block;
+}
+.textoComentario{
+    display: inline-block;
+    width: 82%;
+}
+.textoComentario p{
+    margin-bottom: 9px;
+}
+.comentarioUnaLinea{
+    vertical-align: bottom;
+}
+
+.comentarioUnaLinea p{
+ padding-bottom: 7px;
+ margin-bottom: 3px;
+}
+.infoComentario{
+    margin-left: 55px;
+    color: #a9a7a8;
+}
+
+#añadirComentario{
+    text-align: center;
+    font-size: 7px;
+}
+.responder{
+    padding-left: 10px;
+    font-size: 12px;
+}
+.conHistoria{
+    border-color:#c82d8d;
+}
+
+#iconos{
+    border-top: 1px #dddddd solid;
+    font-size: 30px;
+}
+
+#iconos p{
+    margin-top: 0;
+}
+#conjuntoIconos{
+    margin-bottom: 0;
+    padding-top: 8px;
+    font-size: 25px;
+}
+#marcador{
+    position: relative;
+    left: 49%;
+    
+}
+.separacionDeIconos{
+    margin-left: 15px;
+}
+
+#infoMeGusta{
+    font-weight: 600;
+    margin-left: 15px;
+    margin-top: 5px;
+}
+.tiempoPublicacion{
+    color: #a9a7a8;
+    font-size: 12px;
+}
+.tiempoPublicacionPost{
+    color: #a9a7a8;
+    margin-left: 15px;
+    font-size: 10px;
+}
+
+#iniciarSesion{
+    border-top: 1px #dddddd solid;
+    
+    color: #a9a7a8;
+}
+#iniciarSesion p{
+    margin-left: 15px;
+}
+#iniciarSesion a{
+    text-decoration: none;
+}

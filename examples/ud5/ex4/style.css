@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    height: 100vh;
+}
+
+.planos{
+    width: 100%;
+    perspective: 1000px;
+    perspective-origin: center;
+    overflow-x: hidden;
+    top: 0;
+  right: 0;
+  bottom: 0;
+}
+.plano{
+    width: 100%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.plano5{
+    background-image: url("./examples/ud5/ex4/img/plano5.png");
+    transform: translateZ(-200px) scale(3);
+}
+.plano4{
+    background-image: url("./examples/ud5/ex4/img/4.png");
+    transform: translateZ(-150px) scale(2.5);
+}
+.plano3{
+    background-image: url("./examples/ud5/ex4/img/3.png");
+    transform: translateZ(-100px) scale(2);
+}
+.plano2{
+    background-image: url("./examples/ud5/ex4/img/2.png");
+    transform: translateZ(-50px) scale(1.5);
+}
+.plano1{
+    background-image: url("./examples/ud5/ex4/img/1.png");
+    transform: translateZ(0px) scale(1);
+}
+.planoInformacion{
+    height:1500px
+}

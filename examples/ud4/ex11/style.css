@@ -1,0 +1,50 @@
+.baraja{
+
+}
+
+.carta{
+
+  
+  border-radius: 15px;
+  overflow: hidden;
+  width: 2.5in;
+  height: 3.5in;
+  transition: all 0.5s;
+}
+
+.carta > div{
+  width: 2.5in;
+  height: 3.5in;
+  position: absolute;
+  top:0;
+  left: 0;
+}
+.reverso{
+  z-index: 10;
+  transition: all 0.5s;
+}
+
+.anverso{
+  z-index: 0;
+  transition: all 0.5s;
+}
+
+#mew .reverso{
+  background: url('./examples/ud4/ex11/img/reverso.jpg');
+  background-size: contain;
+}
+#mew .anverso{
+ background: url('./examples/ud4/ex11/img/anverso.jpg');
+ background-size: cover;
+}
+
+
+.carta:hover > div{
+  transform: rotateY(180deg);
+}
+.carta:hover .anverso{
+  z-index: 10;
+}
+.carta:hover .reverso{
+  z-index: 0;
+}

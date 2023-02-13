@@ -1,0 +1,247 @@
+{
+  "menu": {
+    "ud": [
+      {
+        "numero": "1",
+        "titulo": "Repaso HTML y CSS",
+        "ejemplos": {
+          "ej": [
+            {
+              "numero": "1",
+              "info": "Repaso de CSS: Test inicial"
+            },
+            {
+              "numero": "2",
+              "info": "HTML y CSS: Instagram Rosalía"
+            },
+            {
+              "numero": "3",
+              "info": "HTML y CSS: Plantilla",
+              "enunciado": "Debes crear....."
+            },
+            {
+              "numero": "4",
+              "info": "HTML y CSS: Formulario sobrio"
+            },
+            {
+              "numero": "5",
+              "info": "HTML y CSS: Formulario de contacto"
+            },
+            {
+              "numero": "6",
+              "info": "HTML y CSS: Formulario bonito"
+            },
+			            {
+              "numero": "7",
+              "info": "Prueba de depuración"
+            }
+          ]
+        }
+      },
+      {
+        "numero": "2",
+        "titulo": "Utilidades y Multimedia",
+        "ejemplos": {
+          "ej": [
+            {
+              "numero": "1",
+              "info": "Menú desplegable sencillo"
+            },
+            {
+              "numero": "2",
+              "info": "Menú desplegable complicado"
+            },
+            {
+              "numero": "3",
+              "info": "Video"
+            },
+            {
+              "numero": "4",
+              "info": "Video a pantalla completa"
+            }
+          ]
+        }
+      },
+      {
+        "numero": "3",
+        "titulo": "Transiciones y transformaciones",
+        "ejemplos": {
+          "ej": [
+            {
+              "numero": "1",
+              "info": "Ejemplos"
+            },
+            {
+              "numero": "4",
+              "info": "Secciones"
+            },
+            {
+              "numero": "3",
+              "info": "Ríos"
+            },
+            {
+              "numero": "2",
+              "info": "Ficha fruta"
+            },
+            {
+              "numero": "5",
+              "info": "Cómic"
+            },
+            {
+              "numero": "6",
+              "info": "Puzzle"
+            }
+          ]
+        }
+      },
+      {
+        "numero": "4",
+        "titulo": "Animacion 2D",
+        "ejemplos": {
+          "ej": [
+            {
+              "numero": "10",
+              "info": "Animación gota de agua"
+            },
+            {
+              "numero": "2",
+              "info": "Timer"
+            },
+            {
+              "numero": "3",
+              "info": "Papelera"
+            },
+            {
+              "numero": "4",
+              "info": "Circuito eléctrico"
+            },
+            {
+              "numero": "5",
+              "info": "Accidente"
+            },
+            {
+              "numero": "6",
+              "info": "Circuito"
+            },
+            {
+              "numero": "7",
+              "info": "Circuito2"
+            },
+            {
+              "numero": "8",
+              "info": "Slider"
+            },
+            {
+              "numero": "9",
+              "info": "Loader"
+            },
+            {
+              "numero": "11",
+              "info": "Carta"
+            },
+            {
+              "numero": "12",
+              "info": "Baraja"
+            },
+            {
+              "numero": "13",
+              "info": "Carta informativa"
+            },
+            {
+              "numero": "14",
+              "info": "Información Piso"
+            }
+          ]
+        }
+      },
+      {
+        "numero": "5",
+        "titulo": "Parallax",
+        "ejemplos": {
+          "ej": [
+            {
+              "numero": "1",
+              "info": "Parallax sencillo de comida "
+            },
+            {
+              "numero": "3",
+              "info": "Parallax de comida "
+            },
+            {
+              "numero": "2",
+              "info": "Parallax Firewatch"
+            }
+          ]
+        }
+      },
+      {
+        "numero": "6",
+        "titulo": "Animación 3D",
+        "ejemplos": {
+          "ej": [
+            {
+              "numero": "2",
+              "info": "Tetraedro"
+            },
+            {
+              "numero": "3",
+              "info": "Teseracto"
+            },
+            {
+              "numero": "1",
+              "info": "Dado "
+            }
+          ]
+        }
+      },
+      {
+        "numero": "7",
+        "titulo": "Canvas",
+        "ejemplos": {
+          "ej": [
+            {
+              "numero": "1",
+              "info": "Ejercicio Halloween "
+            },
+            {
+              "numero": "2",
+              "info": "Ejercicio Navidad"
+            },
+            {
+              "numero": "3",
+              "info": "Ejercicio BoxLayout"
+            },
+            {
+              "numero": "4",
+              "info": "Ejercicio Bola Navidad"
+            }
+          ]
+        }
+      },
+      {
+        "numero": "8",
+        "titulo": "Especiales",
+        "ejemplos": {
+          "ej": [
+            {
+              "numero": "1",
+              "info": "Ejercicio Halloween "
+            },
+            {
+              "numero": "2",
+              "info": "Ejercicio Navidad"
+            },
+            {
+              "numero": "3",
+              "info": "Ejercicio BoxLayout"
+            },
+            {
+              "numero": "4",
+              "info": "Ejercicio Bola Navidad"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

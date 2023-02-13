@@ -1,0 +1,134 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.slides {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.slides > .slide {
+  flex: 1;
+  height: 600px;
+  border: 2px solid #e9e8ea;
+  border-left: none;
+  position: relative;
+  background-color: white;
+  background-blend-mode: color;
+
+  background-position: center;
+  background-size: cover;
+}
+
+.slide:last-child {
+  border-right: none;
+}
+
+.slide:hover {
+  animation-name: slide;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slide {
+  from {
+      background-color: white;
+  }
+  to {
+      background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+.slide > .titulo {
+  background-color: white;
+  text-transform: uppercase;
+  padding: 20px;
+  font-size: 24px;
+
+  border-right: 2px solid #e9e8ea;
+  border-bottom: 2px solid #e9e8ea;
+  display: inline-block;
+}
+
+.slide > .boton {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  padding-bottom: 20px;
+  padding-right: 40px;
+  display: inline-block;
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  border-bottom: 2px solid black;
+}
+
+.slide > .boton::before {
+  content: "➡";
+  margin-right: 10px;
+}
+.slide:hover > .boton {
+  transition: border-color 0.5s;
+  border-color: white;
+  cursor: pointer;
+}
+
+.slide:hover > .titulo {
+  background-color: black;
+  color: white;
+}
+
+.slide > p {
+  position: absolute;
+  bottom: 90px;
+  padding: 30px;
+  color: white;
+  line-height: 40px;
+  font-size: 15px;
+}
+
+.slide:nth-child(1) {
+  background-image: url("./examples/ud3/ex4/img/trabajo1.jpg");
+}
+.slide:nth-child(2) {
+  background-image: url("./examples/ud3/ex4/img/trabajo2.png");
+}
+.slide:nth-child(3) {
+  background-image: url("./examples/ud3/ex4/img/trabajo3.jpg");
+}
+.slide:nth-child(4) {
+  background-image: url("./examples/ud3/ex4/img/trabajo4.jpg");
+}
+
+@media (max-width: 1320px) {
+  .slides {
+      flex-wrap: wrap;
+      position: relative;
+      transform: none;
+  }
+
+  .slides > .slide {
+      flex: 0 0 49%;
+  }
+}
+
+@media (max-width: 722px) {
+  .slides > .slide {
+      flex: 0 0 99%;
+  }
+}
+
+@media (max-height: 722px) {
+  .slides > .slide {
+      flex: 0 0 99%;
+  }
+}

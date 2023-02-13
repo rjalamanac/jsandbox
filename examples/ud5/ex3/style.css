@@ -1,0 +1,25 @@
+.parallax {
+  min-height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+#burguer {
+  background-image: url("./examples/ud5/ex3/img/burguer.jpg");
+}
+
+#pasta {
+  background-image: url("./examples/ud5/ex3/img/ensalada.jpg");
+}
+
+#cosas{
+  background-image: url("./examples/ud5/ex3/img/macarras.jpg");
+}
+
+
+body {
+  margin: 0 auto;
+  width: 800px;
+  height: 300vh;
+}

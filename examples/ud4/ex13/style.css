@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.carta{
+  position: relative;
+}
+
+.carta, .anverso, .reverso {
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+}
+.carta .anverso, .carta, .reverso {
+  position: absolute;
+}
+.carta {
+ position: absolute;
+ transform-style: preserve-3d;
+ transition-timing-function: cubic-bezier(.175, .885, .32, 1.275);
+ transition-duration: .5s;
+}
+
+.anverso{
+  background-image: url('./examples/ud4/ex13/img/gato.jpg');
+  background-size: 100% 100%;
+  transform: translateZ(1px);
+}
+.reverso{
+  background-color: rgb(45, 45, 48);
+  color:white;
+  padding: 10px;
+  transform: translateZ(-1px) rotateX(180deg) ;
+}
+
+.carta:hover {
+  transform: rotateX(180deg) ;
+}

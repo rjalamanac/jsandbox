@@ -1,0 +1,80 @@
+body {
+	font-family: sans-serif;
+}
+
+fieldset {
+	margin-bottom: 30px;
+	border: 0 none;
+}
+
+form {
+	width: 400px;
+	margin: 10px auto;
+	padding: 20px;
+	border-radius: 7px;
+}
+
+.number {
+	border-radius: 100%;
+	margin-right: 10px;
+	background-color: MediumSeaGreen;
+	color: white;
+	text-align: center;
+	height: 25px;
+	width: 25px;
+	line-height: 25px;
+	display: inline-block;	
+}
+
+h1 {
+	text-align: center;
+}
+
+#name, #mail, #password, #jobs, textarea, datalist{
+	background-color: GhostWhite;
+	padding: 10px;
+	margin: 10px 0;
+	font-size: 16px;
+	height: auto;
+	width: 100%;
+	border-radius: 7px; 
+}
+
+#radio, #checkbox {
+	margin: 10px 0;
+}
+
+button {
+	background-color: MediumSeaGreen;
+	border: 1px solid #339961;
+	border-bottom-width: 2px;
+	border-radius: 7px;
+	padding: 10px 30px;
+	color: white;
+	font-size: 20px;
+	text-align: center;
+	width: 100%;
+}
+
+form:invalid {
+	border: 5px solid mistyrose;
+}
+
+form:valid {
+	border: 5px solid honeydew;
+}
+  
+
+input:invalid {
+	border: 2px solid mistyrose;
+}
+
+
+input:valid {
+	border: 2px solid #98FB98;
+}
+
+input:required:invalid {
+	border: 2px solid mistyrose;
+}
+
