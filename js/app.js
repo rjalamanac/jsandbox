@@ -5,7 +5,7 @@
 * Lo he desarrollado como refuerzo para que compruebes de manera rápida los ejemplos de clase pero puedes usarlo como quieras.
 * Si consigues crear algo digno de mención a partir de este código no ovides enviarme una copia.
 *
-* Date: 2023-02-15
+* Date: 2023-02-16
 */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -355,6 +355,21 @@ $(document).ready(function () {
 		$("#modal_container").css('zIndex', 0);
 	});
 
+	$(".modal-close").click(function (e) {
+		if (e.target !== this) {
+			return;
+		}
+		else {
+			$("#modal_container").removeClass("show");
+			$("#modal_container").css('zIndex', 0);
+		}
+
+	});
+
+
+
+
+
 	$("#runload").click(function () {
 		let url = CONFIG.url;
 		if (CONFIG.runload == "0") {
@@ -418,7 +433,7 @@ $(document).ready(function () {
 		$("#text-copy-iframe").text("¡Copiado!");
 		setTimeout(function () {
 			$("#text-copy-iframe").text("Clic en el botón para copiar el código html para incrustar el iframe")
-		},500);
+		}, 500);
 	});
 
 
@@ -570,7 +585,7 @@ $(document).ready(function () {
 		$("#text-runload").text("Desactiva ejecutar el código al cargar la página");
 		setTimeout(function () {
 			$("#run").trigger("click");
-		},1000);
+		}, 1000);
 	}
 
 	if (CONFIG.liveserver == "0") {
