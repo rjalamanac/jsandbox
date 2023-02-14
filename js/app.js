@@ -76,6 +76,7 @@ CONFIG.EditorColorFondo = "#333";																							//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 if (
+
 	QueryString.iframe === undefined || QueryString.iframe == "" ||
 	QueryString.ud === undefined || QueryString.ud == "" ||
 	QueryString.ex === undefined || QueryString.ex == "" ||
@@ -115,9 +116,10 @@ if (
 	CONFIG.numPanelsOut = CONFIG.panelsOut.filter(x => x == "1").length;
 	CONFIG.url = window.location.href;
 	CONFIG.textoIframe =
-		"<iframe width='100%' height='500px' \n src='" +
+		"<iframe width='100%' height='500px'\n src='" +
 		CONFIG.url.replace('iframe=0&', 'iframe=1&') + "'\n" +
 		" frameborder='0' \n allowfullscreen='allowfullscreen'>\n</iframe>";
+
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -181,7 +183,8 @@ $(document).ready(function () {
 							+ "view=" + CONFIG.view + "&"
 							+ "dark=" + CONFIG.dark + "&"
 							+ "panels=" + CONFIG.panels.join('')
-							+ "'><i class='fa fa-chevron-right' aria-hidden='true'></i>" + ejemplo.info + "</a></li>";
+							+ "'><i class='fa fa-chevron-right' aria-hidden='true'></i>"
+							+ "EJ"+ ejemplo.numero + ": " + ejemplo.info + "</a></li>";
 
 						$("#menu").append(enlaceEjemplo);
 					});
@@ -369,7 +372,6 @@ $(document).ready(function () {
 			$("#modal_container").removeClass("show");
 			$("#modal_container").css('zIndex', 0);
 		}
-
 	});
 
 	$("#runload").click(function () {
