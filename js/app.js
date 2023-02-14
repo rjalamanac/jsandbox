@@ -52,7 +52,7 @@
 // Ejemplo de get típico:																									// 
 //																															//
 //	http://localhost/jsandbox/index.html?iframe=0&ud=1&ex=1&mode=demo&runload=1&liveserver=1&view=1&dark=1&panels=111010	//	
-//	https://javierrojascomercio.github.io/workspace/jsandbox/index.html?iframe=0&ud=1&ex=1&mode=demo&runload=1&liveserver=1&view=1&dark=1&panels=111010
+//	https://javierrojascomercio.github.io/jsandbox/index.html?iframe=0&ud=1&ex=1&mode=demo&runload=1&liveserver=1&view=1&dark=1&panels=111010
 //																															//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // LA CONSTANTE CONFIG:																										//

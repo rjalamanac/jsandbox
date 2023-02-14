@@ -83,6 +83,10 @@ ul {
     top: 10px;
     margin-bottom: 0;
     z-index: 900;
+    background-color:transparent;
+    border: 2px;
+    border-style: solid;
+    border-color: aliceblue;
 }
 
 
