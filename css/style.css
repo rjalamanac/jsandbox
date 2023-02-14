@@ -1,10 +1,20 @@
 /* //////////////////////////////////////////////////////////////////////
                         Body
 //////////////////////////////////////////////////////////////////////*/
+@font-face {
+  font-family: interface;
+  src: url(../fonts/Roboto-Light.ttf);
+}
+
+@font-face {
+  font-family: code;
+  src: url(../fonts/RobotoMono-Light.ttf);
+}
 
 * {
   margin: 0;
   padding: 0;
+
 }
 
 body {
@@ -14,8 +24,15 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, p, a {
+  font-family: interface;
   color: aliceblue;
 }
+
+.editor{
+  font-family: code;
+  color: aliceblue;
+}
+
 
 h1 {
   font-size: 22px;
@@ -55,6 +72,34 @@ ul {
   padding: 0;
   list-style: none;
 }
+
+/* //////////////////////////////////////////////////////////////////////
+                        Botón flotante #go-to-web
+//////////////////////////////////////////////////////////////////////*/
+
+#go-to-web {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    margin-bottom: 0;
+    z-index: 900;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* //////////////////////////////////////////////////////////////////////
                         Menú y cabecera
@@ -281,7 +326,6 @@ header {
 .panel0 {
   height: 0px;
 }
-
 
 .editor {
   position: relative;

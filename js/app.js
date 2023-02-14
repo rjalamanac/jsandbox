@@ -12,8 +12,11 @@
 // PARÁMETROS GET:																											//
 // ¿Qué parámetros GET debemos recibir siempre? //////////////////////////////////////////////////////////////////////////////
 //																															//
-//	querystring.js genera una variable global QueryString que almacena todos los parámetros GET: 							//																														//
+//	querystring.js genera una variable global QueryString que almacena todos los parámetros GET: 							//
 //																															//
+//	QueryString.iframe		bit que determina si al cargar se en modo iframe: sin <header>	y un botón para maximizar		//
+//								0-> muestra el <header>.																	//
+//								1-> oculta el <header> y muestra le botón #go-to-web.										//
 //  QueryString.ud			ud almacena el número de la unidad.																//
 //  QueryString.ex			ex almacena el número del ejemplo.																//
 //  QueryString.mode		mode determina si estamos en modo "demo" o "test".												//
@@ -48,8 +51,8 @@
 //																															//
 // Ejemplo de get típico:																									// 
 //																															//
-//		http://localhost/jsandbox2/index.html?ud=1&ex=1&mode=demo&runload=1&liveserver=1&view=1&dark=1&panels=111010		//	
-//		https://javierrojascomercio.github.io/workspace/jsandbox/index.html?ud=1&ex=1&mode=demo&runload=1&liveserver=1&view=1&dark=1&panels=111010
+//	http://localhost/jsandbox/index.html?iframe=0&ud=1&ex=1&mode=demo&runload=1&liveserver=1&view=1&dark=1&panels=111010	//	
+//	https://javierrojascomercio.github.io/workspace/jsandbox/index.html?iframe=0&ud=1&ex=1&mode=demo&runload=1&liveserver=1&view=1&dark=1&panels=111010
 //																															//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // LA CONSTANTE CONFIG:																										//
@@ -73,6 +76,7 @@ CONFIG.EditorColorFondo = "#333";																							//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 if (
+	QueryString.iframe === undefined || QueryString.iframe == "" ||
 	QueryString.ud === undefined || QueryString.ud == "" ||
 	QueryString.ex === undefined || QueryString.ex == "" ||
 	QueryString.mode === undefined || QueryString.mode == "" ||
@@ -83,6 +87,7 @@ if (
 	QueryString.panels === undefined || QueryString.panels == "" ||
 	QueryString.panels.length != 6) {
 
+	CONFIG.iframe = "0";
 	CONFIG.ud = "0";
 	CONFIG.ex = "0";
 	CONFIG.mode = "demo";
@@ -111,9 +116,8 @@ if (
 	CONFIG.url = window.location.href;
 	CONFIG.textoIframe =
 		"<iframe width='100%' height='500px' \n src='" +
-		CONFIG.url + "'\n" +
+		CONFIG.url.replace('iframe=0&', 'iframe=1&') + "'\n" +
 		" frameborder='0' \n allowfullscreen='allowfullscreen'>\n</iframe>";
-
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -168,6 +172,7 @@ $(document).ready(function () {
 					unidad.ejemplos.ej.forEach(ejemplo => {
 
 						let enlaceEjemplo = "<li><a href='index.html?"
+							+ "iframe=" + CONFIG.iframe + "&"
 							+ "ud=" + unidad.numero + "&"
 							+ "ex=" + ejemplo.numero + "&"
 							+ "mode=" + CONFIG.mode + "&"
@@ -350,6 +355,7 @@ $(document).ready(function () {
 		$("#modal_container").addClass("show");
 		$("#modal_container").css('zIndex', 998);
 	});
+
 	$("#close").click(function () {
 		$("#modal_container").removeClass("show");
 		$("#modal_container").css('zIndex', 0);
@@ -365,10 +371,6 @@ $(document).ready(function () {
 		}
 
 	});
-
-
-
-
 
 	$("#runload").click(function () {
 		let url = CONFIG.url;
@@ -436,6 +438,10 @@ $(document).ready(function () {
 		}, 500);
 	});
 
+	$("#go-to-web").click(function () {
+		CONFIG.url = CONFIG.url.replace('iframe=1&', 'iframe=0&');
+		window.open(CONFIG.url);
+	});
 
 
 
@@ -629,5 +635,25 @@ $(document).ready(function () {
 	editorIFRAME.container.style.background = CONFIG.EditorColorFondo;
 	editorIFRAME.setShowFoldWidgets(false);
 	editorIFRAME.container.style.height
+
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//	CONFIG.iframe		bit que determina si al cargar se en modo iframe: sin <header>	y un botón para maximizar		//
+	//							0-> muestra el <header>.																	//
+	//							1-> oculta el <header> y muestra le botón #go-to-web.										//
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	if (CONFIG.iframe == "0") {
+		$("#go-to-web").hide();
+		$("header").show();
+		$(".container").css("margin-top", "52px");
+
+	} else {
+		$("#go-to-web").show();
+		$("header").hide();
+		$(".container").css("margin-top", "0px");
+	}
+
+
+
 
 });
