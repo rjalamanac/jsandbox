@@ -339,7 +339,7 @@ header {
 }
 
 .panelS {
-  height: calc(((100%) / 3) - 38px);
+  height: calc(((100%) / 3) - 40px);
 }
 
 .panel0 {

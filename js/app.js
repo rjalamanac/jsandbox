@@ -550,13 +550,12 @@ $(document).ready(function () {
 		}
 
 		// Ajustamos la altura si estamos en el modo iframe
-		if (CONFIG.iframe == "1") {
+		ajustaAltoIframe()
 
-			$(".panelL").css({ height: 'calc(((100%)) - 66px' });
-			$(".panelM").css({ height: 'calc(((100%) / 2) - 32px' });
-			$(".panelS").css({ height: 'calc(((100%) / 3) - 20px' });
-	
-		}
+
+
+
+
 	};
 
 	// setHeightPanels() se debe llamar siempre que se quiera actualizar el tamaño de los paneles
@@ -669,15 +668,22 @@ $(document).ready(function () {
 	//							1-> oculta el <header> y muestra le botón #go-to-web.										//
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	if (CONFIG.iframe == "1") {
+	function ajustaAltoIframe() {
+		if (CONFIG.iframe == "1") {
+			$(".panelL").css({ height: 'calc(((100%)) - 66px' });
+			$(".panelM").css({ height: 'calc(((100%) / 2) - 33px' });
+			$(".panelS").css({ height: 'calc(((100%) / 3) - 22px' });
 
+		}
+	}
+
+	ajustaAltoIframe()
+
+	if (CONFIG.iframe == "1") {
 		$("#go-to-web").show();
 		$("header").hide();
 		$(".container").css("margin-top", "0px");
 
-		$(".panelL").css({ height: 'calc(((100%)) - 66px' });
-		$(".panelM").css({ height: 'calc(((100%) / 2) - 32px' });
-		$(".panelS").css({ height: 'calc(((100%) / 3) - 20px' });
 
 	} else {
 		$("#go-to-web").hide();
@@ -689,15 +695,20 @@ $(document).ready(function () {
 
 
 
+
+
 	// TO DO
+	/**/
 	alert(
-	"POR HACER:_________________________________________________________________\n"
-	+"Formatear el menú: bonito, tabindex, anterior, siguiente y tutorial \n "
-	+"ancho mínimo de 600px, si es más no se ajusta más \n "
-	+"botón mostrar solo paneles de código o solo resultados --> y <-- \n "
-	+"que en todos los ACE editor rompa linea en lugar de scroll horizontal \n "
-	+"botón modo impresión \n "
-	+"funciones de botones de opciones \n "
-	+"ancho mínimo de 600px, si es más no se ajusta más \n "
+		"POR HACER:____________________________________________\n"
+		+ "-Formatear el menú: bonito, tabindex, anterior, siguiente y tutorial \n "
+		+ "-Ancho mínimo de 600px, si es más no se ajusta más \n "
+		+ "-Botón mostrar solo paneles de código o solo resultados --> y <-- \n "
+		+ "-Que en todos los ACE editor rompa linea en lugar de scroll horizontal \n "
+		+ "-Botón y modo impresión \n "
+		+ "-Todas las demás funciones de botones de opciones \n "
+		+ "-Cookies y botón de reiniciar ejercicio \n "
+		+ "-Todo el modo ejercicio \n "
+
 	)
 });
