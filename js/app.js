@@ -493,24 +493,6 @@ $(document).ready(function () {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// FUNCIONES PARA REDIMENSIONAR LOS PANELES:																			//
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -565,6 +547,15 @@ $(document).ready(function () {
 				$(CONFIG.nombrePaneles[index]).removeAttr("style");
 				$(CONFIG.nombrePaneles[index]).css("height: height: 0px;");
 			}
+		}
+
+		// Ajustamos la altura si estamos en el modo iframe
+		if (CONFIG.iframe == "1") {
+
+			$(".panelL").css({ height: 'calc(((100%)) - 66px' });
+			$(".panelM").css({ height: 'calc(((100%) / 2) - 32px' });
+			$(".panelS").css({ height: 'calc(((100%) / 3) - 20px' });
+	
 		}
 	};
 
@@ -678,18 +669,35 @@ $(document).ready(function () {
 	//							1-> oculta el <header> y muestra le botón #go-to-web.										//
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	if (CONFIG.iframe == "0") {
+	if (CONFIG.iframe == "1") {
+
+		$("#go-to-web").show();
+		$("header").hide();
+		$(".container").css("margin-top", "0px");
+
+		$(".panelL").css({ height: 'calc(((100%)) - 66px' });
+		$(".panelM").css({ height: 'calc(((100%) / 2) - 32px' });
+		$(".panelS").css({ height: 'calc(((100%) / 3) - 20px' });
+
+	} else {
 		$("#go-to-web").hide();
 		$("header").show();
 		$(".container").css("margin-top", "52px");
 
-	} else {
-		$("#go-to-web").show();
-		$("header").hide();
-		$(".container").css("margin-top", "0px");
 	}
 
 
 
 
+	// TO DO
+	alert(
+	"POR HACER:_________________________________________________________________\n"
+	+"Formatear el menú: bonito, tabindex, anterior, siguiente y tutorial \n "
+	+"ancho mínimo de 600px, si es más no se ajusta más \n "
+	+"botón mostrar solo paneles de código o solo resultados --> y <-- \n "
+	+"que en todos los ACE editor rompa linea en lugar de scroll horizontal \n "
+	+"botón modo impresión \n "
+	+"funciones de botones de opciones \n "
+	+"ancho mínimo de 600px, si es más no se ajusta más \n "
+	)
 });

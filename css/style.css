@@ -63,7 +63,35 @@ ul {
 }
 
 /* //////////////////////////////////////////////////////////////////////
-              Botones flotantes:  #menu-button y #go-to-web
+        Botones:
+//////////////////////////////////////////////////////////////////////*/
+
+.button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 2px;
+  cursor: pointer;
+  pointer-events: auto;
+  margin-left: 15px;
+  touch-action: manipulation;
+  text-align: center;
+  float: left;
+  background-color: #2196F3;
+  width: 50px;
+  height: 30px;
+}
+
+.clickable:hover {
+  background-color: #2579be;
+}
+
+.button-disable {
+  background-color: #ccc;
+}
+
+/* //////////////////////////////////////////////////////////////////////
+        Botones flotantes:   #run, #go-to-web y #menu-button
 //////////////////////////////////////////////////////////////////////*/
 
 #go-to-web {
@@ -82,7 +110,6 @@ ul {
   background-color: #2579be;
 }
 
-
 .float-button {
   width: 48px;
   height: 28px;
@@ -91,7 +118,6 @@ ul {
   top: 10px;
   align-items: center;
   z-index: 900;
-  background-color: transparent;
   
   border-style: solid;
   border-color: aliceblue;
@@ -118,13 +144,16 @@ ul {
   left: 0px; 
 }
 
+.float-button-left-2{
+  left: 65px; 
+}
+
 #menu-button {
   cursor: pointer;
   pointer-events: auto;
   touch-action: manipulation;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
 
 .icon-bar {
   display: block;
@@ -133,7 +162,6 @@ ul {
   background: aliceblue;
   transition: .3s;
 }
-
 
 
 
@@ -151,7 +179,7 @@ header {
 
 #info-panel {
   width: 100%;
-  margin-left: 65px;
+  margin-left: 130px;
   padding-top: 10px;
 }
 
@@ -167,29 +195,9 @@ header {
 
 }
 
-.button {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-radius: 2px;
-  cursor: pointer;
-  pointer-events: auto;
-  margin-left: 15px;
-  touch-action: manipulation;
-  text-align: center;
-  float: left;
-  background-color: #2196F3;
-  width: 50px;
-  height: 30px;
-}
 
-.clickable:hover {
-  background-color: #2579be;
-}
 
-.button-disable {
-  background-color: #ccc;
-}
+
 
 #nav-container {
   position: fixed;
@@ -331,7 +339,7 @@ header {
 }
 
 .panelS {
-  height: calc(((100%) / 3) - 40px);
+  height: calc(((100%) / 3) - 38px);
 }
 
 .panel0 {
