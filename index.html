@@ -164,11 +164,18 @@
 				<div class="config-container">
 
 					<div class="config-container-row">
-						
+
 						<div id="close" class="button clickable">
 							<p><i class="fa fa-times" aria-hidden="true"></i></p>
 						</div>
-						<h2>Opciones </h2>
+						<h2> OPCIONES </h2>
+					</div>
+
+					<div class="config-container-row">
+						<div id="reset" class="button clickable">
+							<p><i class="fa fa-refresh" aria-hidden="true"></i></p>
+						</div>
+						<p> Reiniciar el ejericicio </p>
 					</div>
 
 					<div class="config-container-row">
@@ -176,6 +183,13 @@
 							<p><i class="fa fa-cloud-download" aria-hidden="true"></i></p>
 						</div>
 						<p> Descarga el ejercicio a tu equipo </p>
+					</div>
+
+					<div class="config-container-row">
+						<div id="print" class="button clickable" onclick="imprime_ejercicio(); return false;">
+							<p><i class="fa fa-print" aria-hidden="true"></i></p>
+						</div>
+						<p> Imprimir el ejercicio </p>
 					</div>
 
 					<div class="config-container-row">
@@ -245,6 +259,7 @@
 	<script src="js/tools/descargar.js"></script> <!-- Utilidad para descargar los ejemplos -->
 	<script src="js/tools/filesaver.js"></script> <!-- Utilidad para guardar ficheros de los ejemplos -->
 	<script src="js/tools/jszip.min.js"></script> <!-- Utilidad para comprimir ficheros de los ejemplos -->
+	<script src="js/tools/imprimir.js"></script> <!-- Utilidad para imprimir los ejemplos -->
 	<script src="js/tools/console.js"></script> <!-- Utilidad para capturar los mensajes de consola 
 													y mostrarlos también en el div id="dev" -->
 	<script src="js/app.js"></script> <!-- Main -->

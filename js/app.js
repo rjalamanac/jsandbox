@@ -374,6 +374,11 @@ $(document).ready(function () {
 		}
 	});
 
+	$("#reset").click(function () {
+		alert("Falta de implementar, primero hay que gestrionar las cookies");
+	});
+
+
 	$("#runload").click(function () {
 		let url = CONFIG.url;
 		if (CONFIG.runload == "0") {
@@ -395,6 +400,9 @@ $(document).ready(function () {
 	});
 
 	$("#test").click(function () {
+
+		alert("Falta de implementar, primero hay que hacer modal de preview del ejericicio y no cargar css ni el js");
+
 		let url = CONFIG.url;
 		if (CONFIG.mode == "demo") {
 			url = url.replace('mode=demo&', 'mode=test&')
@@ -405,6 +413,9 @@ $(document).ready(function () {
 	});
 
 	$("#dark").click(function () {
+
+		alert("Falta de implementar, primero hay que hacer todos los estilos claros");
+
 		let url = CONFIG.url;
 		if (CONFIG.dark == "0") {
 			url = url.replace('dark=0&', 'dark=1&')
@@ -415,8 +426,12 @@ $(document).ready(function () {
 	});
 
 	$("#view").click(function () {
+
+		alert("Falta de implementar, primero hay que hacer todos los estilos horizontales");
+
 		let url = CONFIG.url;
 		if (CONFIG.view == "0") {
+			
 			url = url.replace('view=0&', 'view=1&')
 		} else {
 			url = url.replace('view=1&', 'view=0&')
