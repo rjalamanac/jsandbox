@@ -63,15 +63,15 @@ ul {
 }
 
 /* //////////////////////////////////////////////////////////////////////
-                        Botón flotante #go-to-web
+              Botones flotantes:  #menu-button y #go-to-web
 //////////////////////////////////////////////////////////////////////*/
 
 #go-to-web {
   position: absolute;
-  right: 15px;
+ 
   top: 10px;
   margin-bottom: 0;
-  z-index: 900;
+  
   background-color: transparent;
   border: 1px;
   border-style: solid;
@@ -82,6 +82,57 @@ ul {
   background-color: #2579be;
 }
 
+
+.float-button {
+  width: 48px;
+  height: 28px;
+  border: 1px;
+  position: absolute;
+  top: 10px;
+  align-items: center;
+  z-index: 900;
+  background-color: transparent;
+  
+  border-style: solid;
+  border-color: aliceblue;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 2px;
+  cursor: pointer;
+  pointer-events: auto;
+  margin-left: 15px;
+  touch-action: manipulation;
+  text-align: center;
+  float: left;
+  overflow: hidden;
+
+}
+
+.float-button-rigth{
+  right: 15px;
+}
+
+.float-button-left{
+  left: 0px; 
+}
+
+#menu-button {
+  cursor: pointer;
+  pointer-events: auto;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
+.icon-bar {
+  display: block;
+  width: 80%;
+  height: 2px;
+  background: aliceblue;
+  transition: .3s;
+}
 
 
 
@@ -100,7 +151,7 @@ header {
 
 #info-panel {
   width: 100%;
-  margin-left: 50px;
+  margin-left: 65px;
   padding-top: 10px;
 }
 
@@ -153,50 +204,11 @@ header {
   visibility: visible;
 }
 
-.menu-button {
-  position: absolute;
-  left: 15px;
-  top: 10px;
-  align-items: center;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 1;
-  background: transparent;
-  border-radius: 2px;
-
-  border: 1px;
-  border-style: solid;
-  border-color: aliceblue;
-
-
-  width: 50px;
-  height: 30px;
-  cursor: pointer;
-  pointer-events: auto;
-  margin-left: 15px;
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
-  overflow: hidden;
-}
-
-
-
-.icon-bar {
-  display: block;
-  width: 80%;
-  height: 2px;
-  background: aliceblue;
-  transition: .3s;
-}
-
 .icon-bar+.icon-bar {
   margin-top: 5px;
 }
 
-#nav-container:focus-within .menu-button {
+#nav-container:focus-within #menu-button {
   pointer-events: none;
 }
 
@@ -369,7 +381,7 @@ iframe {
   height: 100%;
   width: 100%;
   transition: opacity 0.3s ease;
-  z-index: 0;
+  z-index: -999;
 }
 
 .modal-close {

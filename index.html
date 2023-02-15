@@ -18,15 +18,15 @@
 <body>
 
 	<!-- CABECERA Y MENÚ -->
-
+	<!-- El header se oculta para el modo iframe  -->
 	<header>
 		<div id="info-panel">
 			<!-- Muestra los botones de iframe, descargar y run a la izquierda -->
 			<div class="float-left">
-				<div id="config" class="button clickable">
+				<div id="config" class="button clickable" tabindex="2">
 					<p><i class="fa fa-wrench" aria-hidden="true"></i></p>
 				</div>
-				<div id="run" class="button clickable">
+				<div id="run" class="button clickable" tabindex="1">
 					<p><i class="fa fa-play" aria-hidden="true"></i></p>
 				</div>
 			</div>
@@ -46,18 +46,18 @@
 	</header>
 
 	<!-- Botón #go-to-web para el modo iframe  -->
-	<div id="go-to-web" class="button clickable">
+	<div id="go-to-web" class="float-button float-button-rigth clickable" tabindex="3">
 		<p><i class="fa fa-external-link" aria-hidden="true"></i></p>
 	</div>
-
-	<div id="nav-container">
-		<div class="menu-button" tabindex="0">
+	<!-- Botón #nav-container visible en todo momento modo iframe  -->
+	<div id="nav-container" >
+		<div id="menu-button" class="float-button float-button-left" tabindex="4">
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</div>
 
-		<div id="nav-content" tabindex="0">
+		<div id="nav-content" tabindex="5">
 
 
 			<div class="infoMenu">
@@ -68,7 +68,7 @@
 
 				<br>
 
-				<ul id="menu">
+				<ul id="menu" >
 					<!-- Muestra el título y el enlace a todos los ejercicos a partir del archivo examples/menu.json -->
 				</ul>
 			</div>
@@ -165,70 +165,70 @@
 
 					<div class="config-container-row">
 
-						<div id="close" class="button clickable">
+						<div id="close" class="button clickable" tabindex="21">
 							<p><i class="fa fa-times" aria-hidden="true"></i></p>
 						</div>
 						<h2> OPCIONES </h2>
 					</div>
 
 					<div class="config-container-row">
-						<div id="reset" class="button clickable">
+						<div id="reset" class="button clickable" tabindex="22">
 							<p><i class="fa fa-refresh" aria-hidden="true"></i></p>
 						</div>
 						<p> Reiniciar el ejericicio </p>
 					</div>
 
 					<div class="config-container-row">
-						<div id="download" class="button clickable" onclick="descarga_ejercicio(); return false;">
+						<div id="download" class="button clickable"  tabindex="23" onclick="descarga_ejercicio(); return false;">
 							<p><i class="fa fa-cloud-download" aria-hidden="true"></i></p>
 						</div>
 						<p> Descarga el ejercicio a tu equipo </p>
 					</div>
 
 					<div class="config-container-row">
-						<div id="print" class="button clickable" onclick="imprime_ejercicio(); return false;">
+						<div id="print" class="button clickable"  tabindex="24" onclick="imprime_ejercicio(); return false;">
 							<p><i class="fa fa-print" aria-hidden="true"></i></p>
 						</div>
 						<p> Imprimir el ejercicio </p>
 					</div>
 
 					<div class="config-container-row">
-						<div id="runload" class="button clickable">
+						<div id="runload" class="button clickable" tabindex="25">
 							<p><i class="fa fa-cog" aria-hidden="true"></i></p>
 						</div>
 						<p id="text-runload"> Activa / desactiva ejecutar el código al cargar la página </p>
 					</div>
 
 					<div class="config-container-row">
-						<div id="liveserver" class="button clickable">
+						<div id="liveserver" class="button clickable"  tabindex="26">
 							<p><i class="fa fa-bolt"></i></p>
 						</div>
 						<p id="text-liveserver"> Activa / desactiva Live Server </p>
 					</div>
 
 					<div class="config-container-row">
-						<div id="test" class="button clickable">
+						<div id="test" class="button clickable"  tabindex="27">
 							<p><i class="fa fa-book" aria-hidden="true"></i></p>
 						</div>
 						<p id="text-test"> Activa / desactiva Modo ejericicio </p>
 					</div>
 
 					<div class="config-container-row">
-						<div id="dark" class="button clickable">
+						<div id="dark" class="button clickable" tabindex="28">
 							<p><i class="fa fa-moon-o" aria-hidden="true"></i></p>
 						</div>
 						<p id="text-dark"> Activa / desactiva Modo oscuro </p>
 					</div>
 
 					<div class="config-container-row">
-						<div id="view" class="button clickable">
+						<div id="view" class="button clickable" tabindex="29">
 							<p><i class="fa fa-window-restore" aria-hidden="true"></i></p>
 						</div>
 						<p id="text-view"> Activa / desactiva Vista vertical </p>
 					</div>
-
+						
 					<div class="config-container-row">
-						<div id="iframe" class="button clickable">
+						<div id="iframe" class="button clickable" tabindex="30">
 							<p><i class="fa fa-code" aria-hidden="true"></i></p>
 						</div>
 						<p id="text-copy-iframe"> Clic en el botón para copiar el código html para incrustar el iframe

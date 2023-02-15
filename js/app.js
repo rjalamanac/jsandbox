@@ -184,7 +184,7 @@ $(document).ready(function () {
 							+ "dark=" + CONFIG.dark + "&"
 							+ "panels=" + CONFIG.panels.join('')
 							+ "'><i class='fa fa-chevron-right' aria-hidden='true'></i>"
-							+ "EJ"+ ejemplo.numero + ": " + ejemplo.info + "</a></li>";
+							+ "EJ" + ejemplo.numero + ": " + ejemplo.info + "</a></li>";
 
 						$("#menu").append(enlaceEjemplo);
 					});
@@ -353,15 +353,18 @@ $(document).ready(function () {
 		}
 	});
 
-	// Todos los eventos clic de los botones
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// ASIGNACIÓN DE TODOS EVENTOS CLIC EN LOS BOTONES:																						//
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	$("#config").click(function () {
 		$("#modal_container").addClass("show");
-		$("#modal_container").css('zIndex', 998);
+		$("#modal_container").css('zIndex', 999);
+		$("#close").focus();
 	});
 
 	$("#close").click(function () {
 		$("#modal_container").removeClass("show");
-		$("#modal_container").css('zIndex', 0);
+		$("#modal_container").css('zIndex', -999);
 	});
 
 	$(".modal-close").click(function (e) {
@@ -370,14 +373,13 @@ $(document).ready(function () {
 		}
 		else {
 			$("#modal_container").removeClass("show");
-			$("#modal_container").css('zIndex', 0);
+			$("#modal_container").css('zIndex', -999);
 		}
 	});
 
 	$("#reset").click(function () {
 		alert("Falta de implementar, primero hay que gestrionar las cookies");
 	});
-
 
 	$("#runload").click(function () {
 		let url = CONFIG.url;
@@ -431,7 +433,7 @@ $(document).ready(function () {
 
 		let url = CONFIG.url;
 		if (CONFIG.view == "0") {
-			
+
 			url = url.replace('view=0&', 'view=1&')
 		} else {
 			url = url.replace('view=1&', 'view=0&')
@@ -458,6 +460,23 @@ $(document).ready(function () {
 	$("#go-to-web").click(function () {
 		CONFIG.url = CONFIG.url.replace('iframe=1&', 'iframe=0&');
 		window.open(CONFIG.url);
+	});
+
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// ASIGNACIÓN DE TODOS LOS TECLADO:																						//
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	$(document).bind('keydown', function (e) {
+		if (e.which == 27) {
+			$("#run").focus();
+			$("#close").click();
+		};
+	})
+
+	$(".button , .float-button").keypress(function (event) {
+		var keycode = (event.keyCode ? event.keyCode : event.which);
+		if (keycode == '13') {
+			event.target.click();
+		}
 	});
 
 
