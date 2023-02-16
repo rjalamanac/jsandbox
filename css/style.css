@@ -157,7 +157,7 @@ ul {
 
 .icon-bar {
   display: block;
-  width: 80%;
+  width: 45px;
   height: 2px;
   background: aliceblue;
   transition: .3s;
@@ -331,15 +331,15 @@ header {
 }
 
 .panelL {
-  height: calc((100% - 72px) - 48px);
+  height: calc((100% - 72px) - 46px);
 }
 
 .panelM {
-  height: calc(((100% - 24px) / 2) - 48px);
+  height: calc(((100% - 24px) / 2) - 47px);
 }
 
 .panelS {
-  height: calc(((100%) / 3) - 40px);
+  height: calc(((100%) / 3) - 39.2px);
 }
 
 .panel0 {

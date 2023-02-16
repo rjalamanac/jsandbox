@@ -698,7 +698,7 @@ $(document).ready(function () {
 
 
 	// TO DO
-	/**/
+	/*
 	alert(
 		"POR HACER:____________________________________________\n"
 		+ "-Formatear el menú: bonito, tabindex, anterior, siguiente y tutorial \n "
@@ -710,5 +710,5 @@ $(document).ready(function () {
 		+ "-Cookies y botón de reiniciar ejercicio \n "
 		+ "-Todo el modo ejercicio \n "
 
-	)
+	)*/
 });
