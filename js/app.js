@@ -35,6 +35,7 @@
 //	QueryString.dark		bit que determina si al cargar se muesrta el tema oscuro.										//
 //								0-> muestra el tema claro.																	//
 //								1-> muestra el tema oscuro.																	//
+//								2-> muestra el tema de alto contraste para daltónicos.										//	
 //  QueryString.panels		mode determina qué paneles se muestran maximizados al cargar. Sus valores son seis bits 0 o 1. 	//
 //								0-> mostrar minimizado.																		//
 //								1-> mostrar maximizado.																		//
@@ -421,11 +422,42 @@ $(document).ready(function () {
 		let url = CONFIG.url;
 		if (CONFIG.dark == "0") {
 			url = url.replace('dark=0&', 'dark=1&')
-		} else {
+			url = url.replace('dark=2&', 'dark=1&')
+		} 
+		
+		if (CONFIG.dark == "1"){
 			url = url.replace('dark=1&', 'dark=0&')
+			url = url.replace('dark=2&', 'dark=0&')
+		}
+
+		if (CONFIG.dark == "2"){
+			url = url.replace('dark=0&', 'dark=1&')
+			url = url.replace('dark=2&', 'dark=1&')
 		}
 		window.location.href = url;
 	});
+
+	$("#colorblind").click(function () {
+
+		alert("Falta de implementar, primero hay que hacer todos los estilos claros, oscuros y validar con WCAG 2");
+
+		let url = CONFIG.url;
+		if (CONFIG.dark == "0" || CONFIG.dark == "1") {
+			url = url.replace('dark=0&', 'dark=2&')
+			url = url.replace('dark=1&', 'dark=2&')
+		} 
+
+		if (CONFIG.dark == "2"){
+			url = url.replace('dark=0&', 'dark=1&')
+			url = url.replace('dark=2&', 'dark=1&')
+		}
+		window.location.href = url;
+	});
+
+
+
+	
+
 
 	$("#view").click(function () {
 
@@ -636,13 +668,25 @@ $(document).ready(function () {
 		$("#text-test").text("Desctiva Modo ejericicio");
 	}
 
-	if (CONFIG.dark == "0") {
+	if (CONFIG.dark == "0" || CONFIG.dark == "2") {
 		$("#dark").addClass("button-disable");
 		$("#text-dark").text("Activa Modo oscuro");
-	} else {
+	} 
+	else {
 		$("#dark").removeClass("button-disable");
 		$("#text-dark").text("Desctiva Modo oscuro");
 	}
+
+	if (CONFIG.dark == "0" || CONFIG.dark == "1") {
+		$("#colorblind").addClass("button-disable");
+		$("#text-colorblind").text("Activa Modo alto contraste");
+	} 
+	else {
+		$("#colorblind").removeClass("button-disable");
+		$("#text-colorblind").text("Desctiva Modo alto contraste");
+	}
+
+
 
 	if (CONFIG.view == "0") {
 		$("#view").addClass("button-disable");
