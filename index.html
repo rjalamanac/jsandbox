@@ -12,10 +12,7 @@
 	<meta name="author" content="Javier Rojas" />
 	<meta name="copyright" content="Haz lo que quieras con este código" />
 	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome.min.css">
-	<link rel="stylesheet" href="assets/fonts/fontawesome/css/brands.min.css">
-	<link rel="stylesheet" href="assets/fonts/fontawesome/css/solid.min.css">
-						<!-- Más iconos https://fontawesome.com/search -->
+	<link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css"><!-- Más iconos https://fontawesome.com/search -->
 	
 </head>
 
@@ -28,9 +25,7 @@
 		<div id="info-panel">
 			<!-- Muestra los botones de iframe, descargar y run a la izquierda -->
 			<div class="float-left">
-				<div id="config" class="button clickable" tabindex="4">
-					<p><i class="fa fa-wrench" aria-hidden="true"></i></p>
-				</div>
+		
 
 			</div>
 
@@ -42,11 +37,15 @@
 
 	<!-- Botón #nav-container visible en todo momento modo iframe  -->
 	<div id="float-buttons">
-		<div id="run" class="float-button float-button-left-2 clickable" tabindex="1">
+		<div id="run" class="float-button float-button-left clickable" tabindex="1">
 			<p><i class="fa-sharp fa-solid fa-play"></i></p>
 		</div>
 
-		<div id="go-to-web" class="float-button float-button-rigth clickable" tabindex="3">
+		<div id="config" class="float-button float-button-left-2 clickable" tabindex="2">
+			<p><i class="fa fa-wrench" aria-hidden="true"></i></p>
+		</div>
+
+		<div id="go-to-web" class="float-button float-button-rigth clickable" tabindex="7">
 			<p><i class="fa fa-external-link" aria-hidden="true"></i></p>
 		</div>
 	</div>
@@ -56,19 +55,18 @@
 	<div id="nav-container">
 		<!-- Botones #run y #go-to-web para el modo iframe  -->
 
-
-		<div id="menu-button" class="float-button float-button-left" tabindex="2">
+		<div id="menu-button" class="float-button float-button-left-3" tabindex="3">
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</div>
 
-		<div id="nav-content" tabindex="5">
+		<div id="nav-content" tabindex="4">
 			<div class="float-right">
-				<div id="back" class="button clickable" tabindex="6">
+				<div id="back" class="button clickable" tabindex="5">
 					<p><i class="fa fa-backward" aria-hidden="true"></i></p>
 				</div>
-				<div id="next" class="button clickable" tabindex="7">
+				<div id="next" class="button clickable" tabindex="6">
 					<p><i class="fa fa-forward" aria-hidden="true"></i></p>
 				</div>
 			</div>
@@ -98,7 +96,7 @@
 				<div id="html" class="editor"></div>
 			</div>
 			<!-- ESPACIADOR PARA REDIMENSIONAR VERTICALMENTE (resizer.js)-->
-			<div class="resizer" data-direction="vertical"></div>
+			<div class="resizer resizer-left" data-direction="vertical"></div>
 
 			<div id="switch-css" class="header-panel clickable">
 				<h3 style="color:#2196F3"><i class="fa-brands fa-css3-alt"></i> &nbsp;CSS</h3>
@@ -108,7 +106,7 @@
 			</div>
 
 			<!-- ESPACIADOR PARA REDIMENSIONAR VERTICALMENTE (resizer.js)-->
-			<div class="resizer" data-direction="vertical"></div>
+			<div class="resizer resizer-left" data-direction="vertical"></div>
 
 			<div id="switch-js" class="header-panel clickable">
 				<h3 style="color:#daa520"><i class="fa-brands fa-js"></i> &nbsp;JS</h3>
@@ -139,7 +137,7 @@
 			</div>
 
 			<!-- ESPACIADOR PARA REDIMENSIONAR VERTICALMENTE (resizer.js)-->
-			<div class="resizer" data-direction="vertical"></div>
+			<div class="resizer resizer-right" data-direction="vertical"></div>
 
 			<div id="switch-out" class="header-panel clickable">
 				<h3 style="color: #df5e50"> <i class="fa fa-desktop" aria-hidden="true"></i> &nbsp;PANTALLA</h3>
@@ -149,11 +147,11 @@
 			</div>
 
 			<!-- ESPACIADOR PARA REDIMENSIONAR VERTICALMENTE (resizer.js)-->
-			<div class="resizer" data-direction="vertical"></div>
+			<div class="resizer resizer-right" data-direction="vertical"></div>
 
 
 			<div id="switch-dev" class="header-panel clickable">
-				<h3 style="color:#e26fd8"><i class="fa fa-terminal" aria-hidden="true"></i> &nbsp;CONSOLA</h3>
+				<h3 style="color:#8360c3"><i class="fa fa-terminal" aria-hidden="true"></i> &nbsp;CONSOLA</h3>
 			</div>
 			<div id="devPanel" class="panelOut panelM">
 				<div id="dev" class="editor"></div>
@@ -237,14 +235,14 @@
 
 					<div class="config-container-row">
 						<div id="colorblind" class="button clickable" tabindex="29">
-							<p><i class="fa-regular fa-circle-half-stroke"></i></p>
+							<p><i class="fa-solid fa-circle-half-stroke"></i></p>
 						</div>
 						<p id="text-colorblind"> Activa / desactiva Modo alto contraste </p>
 					</div>
 
 					<div class="config-container-row">
 						<div id="view" class="button clickable" tabindex="30">
-							<p><i class="fa-regular fa-table-columns"></i></p>
+							<p><i class="fa-solid fa-table-columns"></i></p>
 						</div>
 						<p id="text-view"> Activa / desactiva Vista vertical </p>
 					</div>

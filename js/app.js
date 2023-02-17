@@ -753,4 +753,7 @@ $(document).ready(function () {
 		+ "-Todo el modo ejercicio \n "
 
 	)*/
+
+
+	$("#run").focus();
 });
