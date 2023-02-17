@@ -686,8 +686,6 @@ $(document).ready(function () {
 		$("#text-colorblind").text("Desctiva Modo alto contraste");
 	}
 
-
-
 	if (CONFIG.view == "0") {
 		$("#view").addClass("button-disable");
 		$("#text-view").text("Activa Vista vertical");
