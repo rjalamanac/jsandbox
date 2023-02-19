@@ -169,7 +169,7 @@ $(document).ready(function () {
 				// Rellemanos el menú 
 				respuesta['menu'].ud.forEach(unidad => {
 					let unidadTxt = "UD " + unidad.numero + ". " + unidad.titulo;
-					$("#menu").append("<li><h3>" + unidadTxt + "</h3></li>");
+					$("#menu").append("<li><h4>" + unidadTxt + "</h4></li>");
 
 					unidad.ejemplos.ej.forEach(ejemplo => {
 
