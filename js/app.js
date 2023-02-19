@@ -52,9 +52,8 @@
 //																															//
 // Ejemplo de get típico:																									// 
 //																															//
-//	http://localhost/jsandbox/index.html?iframe=0&ud=1&ex=1&mode=demo&runload=1&liveserver=1&view=1&dark=1&panels=111010	//	
-//	https://javierrojascomercio.github.io/jsandbox/index.html?iframe=0&ud=1&ex=1&mode=demo&runload=1&liveserver=1&view=1&dark=1&panels=111010
-//																															//
+// http://localhost/jsandbox/index.html?iframe=0&ud=1&ex=1&mode=demo&runload=1&liveserver=1&view=1&dark=1&panels=111010		//	
+// https://javierrojascomercio.github.io/jsandbox/index.html?iframe=0&ud=1&ex=1&mode=demo&runload=1&liveserver=1&view=1&dark=1&panels=111010
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // LA CONSTANTE CONFIG:																										//
 // Todos los parámetros enviados por get y almacenados en QueryString se vuelcan a CONFIG ////////////////////////////////////
@@ -476,10 +475,8 @@ $(document).ready(function () {
 	$("#iframe").click(function () {
 		var $bridge = $("<input>")
 		$("body").append($bridge);
-		$bridge.val($("#iframecode").text()
-			.replace('12345', '')  //esto es una pequeña ñapa por el formato en el que davuelve el textoel editor Ace.
-			.replace('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', ''))	// esto también.
-			.select();
+
+		$bridge.val(editorIFRAME.getValue()).select();
 		document.execCommand("copy");
 		$bridge.remove();
 
