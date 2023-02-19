@@ -144,6 +144,7 @@ var editorJS;
 var editorTEXT;
 var editorDEV;
 var textoConsola = "Mensajes de CONSOLA:\n>\n";
+var tabindex = 8; // contador para los tabindex de la página
 
 $(document).ready(function () {
 
@@ -171,9 +172,12 @@ $(document).ready(function () {
 					let unidadTxt = "UD " + unidad.numero + ". " + unidad.titulo;
 					$("#menu").append("<li><h4>" + unidadTxt + "</h4></li>");
 
+					
+
 					unidad.ejemplos.ej.forEach(ejemplo => {
 
-						let enlaceEjemplo = "<li><a href='index.html?"
+						let enlaceEjemplo = "<li >"
+							+"<a tabindex = '"+tabindex+"' href='index.html?"
 							+ "iframe=" + CONFIG.iframe + "&"
 							+ "ud=" + unidad.numero + "&"
 							+ "ex=" + ejemplo.numero + "&"
@@ -187,6 +191,7 @@ $(document).ready(function () {
 							+ "EJ" + ejemplo.numero + ": " + ejemplo.info + "</a></li>";
 
 						$("#menu").append(enlaceEjemplo);
+						tabindex++;
 					});
 				});
 				// Rellemanos el info-panel
@@ -225,6 +230,7 @@ $(document).ready(function () {
 				editorHTML = ace.edit("html");
 				editorHTML.setTheme("ace/theme/" + CONFIG.EditorTema);
 				editorHTML.getSession().setMode("ace/mode/html");
+				editorHTML.session.setUseWrapMode(true);
 				editorHTML.container.style.background = CONFIG.EditorColorFondo;
 				editorHTML.setShowFoldWidgets(false);
 				editorHTML.container.style.height
@@ -245,6 +251,7 @@ $(document).ready(function () {
 				editorCSS = ace.edit("css");
 				editorCSS.setTheme("ace/theme/" + CONFIG.EditorTema);
 				editorCSS.getSession().setMode("ace/mode/css");
+				editorCSS.session.setUseWrapMode(true);
 				editorCSS.container.style.background = CONFIG.EditorColorFondo;
 				editorCSS.setShowFoldWidgets(false);
 			}
@@ -264,6 +271,7 @@ $(document).ready(function () {
 				editorJS = ace.edit("js");
 				editorJS.setTheme("ace/theme/" + CONFIG.EditorTema);
 				editorJS.getSession().setMode("ace/mode/javascript");
+				editorJS.session.setUseWrapMode(true);
 				editorJS.container.style.background = CONFIG.EditorColorFondo;
 				editorJS.setShowFoldWidgets(false);
 			}
@@ -283,6 +291,7 @@ $(document).ready(function () {
 				editorTEXT.setTheme("ace/theme/" + CONFIG.EditorTema);
 				editorTEXT.getSession().setMode("ace/mode/text");
 				editorTEXT.container.style.background = CONFIG.EditorColorFondo;
+				editorTEXT.session.setUseWrapMode(true);
 				editorTEXT.setShowFoldWidgets(false);
 				editorTEXT.setReadOnly(true);
 				editorTEXT.renderer.setOption('showLineNumbers', false);

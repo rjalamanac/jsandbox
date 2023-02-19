@@ -12,8 +12,9 @@
 	<meta name="author" content="Javier Rojas" />
 	<meta name="copyright" content="Haz lo que quieras con este código" />
 	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css"><!-- Más iconos https://fontawesome.com/search -->
-	
+	<link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css">
+	<!-- Más iconos https://fontawesome.com/search -->
+
 </head>
 
 <body>
@@ -25,7 +26,7 @@
 		<div id="info-panel">
 			<!-- Muestra los botones de iframe, descargar y run a la izquierda -->
 			<div class="float-left">
-		
+
 
 			</div>
 
@@ -35,7 +36,6 @@
 	</header>
 
 
-	<!-- Botón #nav-container visible en todo momento modo iframe  -->
 	<div id="float-buttons">
 		<div id="run" class="float-button float-button-left clickable" tabindex="1">
 			<p><i class="fa-sharp fa-solid fa-play"></i></p>
@@ -44,8 +44,12 @@
 		<div id="config" class="float-button float-button-left-2 clickable" tabindex="2">
 			<p><i class="fa fa-wrench" aria-hidden="true"></i></p>
 		</div>
+		<!-- hacer todo el boton -->
+		<div id="enun" class="float-button float-button-left-2 clickable" tabindex="2">
+			<p><i class="fa fa-book" aria-hidden="true"></i></p>
+		</div>
 
-		<div id="go-to-web" class="float-button float-button-rigth clickable" tabindex="7">
+		<div id="go-to-web" class="float-button float-button-rigth clickable" tabindex="6">
 			<p><i class="fa fa-external-link" aria-hidden="true"></i></p>
 		</div>
 	</div>
@@ -61,12 +65,12 @@
 			<span class="icon-bar"></span>
 		</div>
 
-		<div id="nav-content" tabindex="4">
+		<div id="nav-content">
 			<div class="float-right">
-				<div id="back" class="button clickable" tabindex="5">
+				<div id="back" class="button clickable" tabindex="4">
 					<p><i class="fa fa-backward" aria-hidden="true"></i></p>
 				</div>
-				<div id="next" class="button clickable" tabindex="6">
+				<div id="next" class="button clickable" tabindex="5">
 					<p><i class="fa fa-forward" aria-hidden="true"></i></p>
 				</div>
 			</div>
@@ -74,7 +78,8 @@
 			<div class="infoMenu">
 
 				<h3 class='destacar'>
-					<a href="index.html?mode=css&ud=0&ex=1">TUTORIAL<i class="fa fa-book" aria-hidden="true"></i></a>
+					<a tabindex="7" href="index.html?mode=css&ud=0&ex=1">TUTORIAL<i class="fa fa-book"
+							aria-hidden="true"></i></a>
 				</h3>
 
 				<br>
@@ -129,7 +134,7 @@
 		<div class="grid">
 
 			<div id="switch-text" class="header-panel clickable">
-				<h4 style="color:#7FB685"><i class="fa fa-book" aria-hidden="true"></i> &nbsp;ENUNCIADO</h4>
+				<h4 style="color:#7FB685"><i class="fa fa-book" aria-hidden="true"></i> &nbsp;DOCUMENTACIÓN</h4>
 			</div>
 
 			<div id="textPanel" class="panelOut panelM">
@@ -176,21 +181,21 @@
 
 					<div class="config-container-row">
 
-						<div id="close" class="button clickable" tabindex="21">
+						<div id="close" class="button clickable" tabindex="10001">
 							<p><i class="fa fa-times" aria-hidden="true"></i></p>
 						</div>
 						<h3> OPCIONES </h3>
 					</div>
 
 					<div class="config-container-row">
-						<div id="reset" class="button clickable" tabindex="22">
+						<div id="reset" class="button clickable" tabindex="10002">
 							<p><i class="fa fa-refresh" aria-hidden="true"></i></p>
 						</div>
 						<p> Reiniciar el ejericicio </p>
 					</div>
 
 					<div class="config-container-row">
-						<div id="download" class="button clickable" tabindex="23"
+						<div id="download" class="button clickable" tabindex="10003"
 							onclick="descarga_ejercicio(); return false;">
 							<p><i class="fa fa-cloud-download" aria-hidden="true"></i></p>
 						</div>
@@ -198,7 +203,7 @@
 					</div>
 
 					<div class="config-container-row">
-						<div id="print" class="button clickable" tabindex="24"
+						<div id="print" class="button clickable" tabindex="10004"
 							onclick="imprime_ejercicio(); return false;">
 							<p><i class="fa fa-print" aria-hidden="true"></i></p>
 						</div>
@@ -206,49 +211,49 @@
 					</div>
 
 					<div class="config-container-row">
-						<div id="runload" class="button clickable" tabindex="25">
+						<div id="runload" class="button clickable" tabindex="10005">
 							<p><i class="fa fa-cog" aria-hidden="true"></i></p>
 						</div>
 						<p id="text-runload"> Activa / desactiva ejecutar el código al cargar la página </p>
 					</div>
 
 					<div class="config-container-row">
-						<div id="liveserver" class="button clickable" tabindex="26">
+						<div id="liveserver" class="button clickable" tabindex="10006">
 							<p><i class="fa fa-bolt"></i></p>
 						</div>
 						<p id="text-liveserver"> Activa / desactiva Live Server </p>
 					</div>
 
 					<div class="config-container-row">
-						<div id="test" class="button clickable" tabindex="27">
+						<div id="test" class="button clickable" tabindex="10007">
 							<p><i class="fa fa-book" aria-hidden="true"></i></p>
 						</div>
 						<p id="text-test"> Activa / desactiva Modo ejericicio </p>
 					</div>
 
 					<div class="config-container-row">
-						<div id="dark" class="button clickable" tabindex="28">
+						<div id="dark" class="button clickable" tabindex="10008">
 							<p><i class="fa-regular fa-moon"></i></p>
 						</div>
 						<p id="text-dark"> Activa / desactiva Modo oscuro </p>
 					</div>
 
 					<div class="config-container-row">
-						<div id="colorblind" class="button clickable" tabindex="29">
+						<div id="colorblind" class="button clickable" ttabindex="10009">
 							<p><i class="fa-solid fa-circle-half-stroke"></i></p>
 						</div>
 						<p id="text-colorblind"> Activa / desactiva Modo alto contraste </p>
 					</div>
 
 					<div class="config-container-row">
-						<div id="view" class="button clickable" tabindex="30">
+						<div id="view" class="button clickable" tabindex="10010">
 							<p><i class="fa-solid fa-table-columns"></i></p>
 						</div>
 						<p id="text-view"> Activa / desactiva Vista vertical </p>
 					</div>
 
 					<div class="config-container-row">
-						<div id="iframe" class="button clickable" tabindex="31">
+						<div id="iframe" class="button clickable" tabindex="10011">
 							<p><i class="fa fa-code" aria-hidden="true"></i></p>
 						</div>
 						<p id="text-copy-iframe"> Clic en el botón para copiar el código html para incrustar el
@@ -274,7 +279,8 @@
 	<script src="js/tools/filesaver.js"></script> <!-- Utilidad para guardar ficheros de los ejemplos -->
 	<script src="js/tools/jszip.min.js"></script> <!-- Utilidad para comprimir ficheros de los ejemplos -->
 	<script src="js/tools/imprimir.js"></script> <!-- Utilidad para imprimir los ejemplos -->
-	<script src="js/tools/console.js"></script> <!-- Utilidad para capturar los mensajes de consola y mostrarlos también en el div id="dev" -->
+	<script src="js/tools/console.js"></script>
+	<!-- Utilidad para capturar los mensajes de consola y mostrarlos también en el div id="dev" -->
 	<script src="js/app.js"></script> <!-- Main -->
 
 </body>
