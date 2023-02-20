@@ -2,7 +2,7 @@
       Variables para los estilos: clear | dark | colorblind
 //////////////////////////////////////////////////////////////////////*/
 :root {
-  --color-fondo-dark: #333;
+  --color-fondo-dark: #202020;
   --color-fondo-gradienete-dark: linear-gradient(90deg, #8360c3, #2ebf91, #8360c3);
 
 
@@ -33,6 +33,7 @@ body {
   font-family: sans-serif;
   overflow: hidden;
   background: var(--color-fondo-gradienete-dark);
+  min-width: 600px;
 }
 
 h1, h2, h3, h4, h5, h6, p, a {
@@ -42,26 +43,21 @@ h1, h2, h3, h4, h5, h6, p, a {
 
 p {
   height: auto;
-}
+} 
 
-a,
-a:visited,
-a:focus,
-a:active,
-a:link {
-  text-decoration: none;
-  outline: 0;
-}
+a.actual {
+  color: var(--color-button-enalble);
+  font-weight: bold;
 
-a {
-  color: currentColor;
-  transition: .2s ease-in-out;
 }
 
 ul {
   padding: 0;
   list-style: none;
 }
+
+
+
 
 /* //////////////////////////////////////////////////////////////////////
         Botones:
@@ -151,7 +147,7 @@ ul {
   right: 15px;
 }
 
-.float-button-left {
+.float-button-left-1 {
   left: 0px;
 }
 
@@ -161,6 +157,10 @@ ul {
 
 .float-button-left-3 {
   left: 130px;
+}
+
+.float-button-left-4 {
+  left: 195px;
 }
 
 #menu-button {
@@ -195,7 +195,7 @@ header {
 
 #info-panel {
   width: 100%;
-  margin-left: 210px;
+  margin-left: 275px;
   padding-top: 10px;
 }
 
@@ -207,13 +207,8 @@ header {
 
 .float-right {
   float: right;
-  padding-right: 65px;
-
+  padding-right: 65px;  
 }
-
-
-
-
 
 #nav-container {
   position: fixed;
@@ -222,7 +217,6 @@ header {
   pointer-events: none;
   z-index: 999;
 }
-
 
 #nav-container * {
   visibility: visible;
@@ -280,8 +274,7 @@ header {
 #nav-content li a {
   padding: 2px 10px;
   display: block;
-  transition: color .1s;
-  color: var(--color-text-dark);
+  text-decoration: none;
 }
 
 #nav-content li:hover {
@@ -366,12 +359,32 @@ header {
   height: 0px;
 }
 
+
+
 .editor {
   position: relative;
   height: 100%;
 }
 
-#output {
+.ace_scrollbar::-webkit-scrollbar {
+  height: 7px;
+  width: 7px;
+}
+
+.ace_scrollbar::-webkit-scrollbar-track
+{
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #202020; /* Matches ace monokai */
+}
+
+.ace_scrollbar::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+
+
+#outputPanel {
   background: #ffffff;
 }
 
@@ -438,7 +451,11 @@ iframe {
   width: 100%;
 }
 
-.config-container-row {
+.exercise-container {
+  width: 100%;
+}
+
+.container-row {
   margin-top: 15px;
   margin-left: 15px;
   width: 100%;
@@ -448,7 +465,7 @@ iframe {
 
 }
 
-.config-container-row>p, h1, h2, h3 {
+.container-row>p, h1, h2, h3 {
   margin: 5px 75px;
 }
 

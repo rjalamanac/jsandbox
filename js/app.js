@@ -66,7 +66,7 @@ CONFIG.nombrePaneles = ["#htmlPanel", "#cssPanel", "#jsPanel", "#textPanel", "#o
 //																															//
 // Configuraciones de estilo para los editores de código																	//
 CONFIG.EditorTema = "one_dark";																								//
-CONFIG.EditorColorFondo = "#333";																							//
+CONFIG.EditorColorFondo = "#202020";																							//
 //																															//
 // Antes que nada comprobamos que QueryString esté bien formado, mostramos el tutorial con parámetros por defecto.			//
 // También estaría bien comrpobar que:																						//
@@ -144,7 +144,7 @@ var editorJS;
 var editorTEXT;
 var editorDEV;
 var textoConsola = "Mensajes de CONSOLA:\n>\n";
-var tabindex = 8; // contador para los tabindex de la página
+var tabindex = 9; // contador para los tabindex de la página
 
 $(document).ready(function () {
 
@@ -175,6 +175,10 @@ $(document).ready(function () {
 					
 
 					unidad.ejemplos.ej.forEach(ejemplo => {
+						let ejercicioActual = "";
+						if (unidad.numero == CONFIG.ud && ejemplo.numero ==CONFIG.ex) ejercicioActual="class= 'actual'";
+
+
 
 						let enlaceEjemplo = "<li >"
 							+"<a tabindex = '"+tabindex+"' href='index.html?"
@@ -187,7 +191,7 @@ $(document).ready(function () {
 							+ "view=" + CONFIG.view + "&"
 							+ "dark=" + CONFIG.dark + "&"
 							+ "panels=" + CONFIG.panels.join('')
-							+ "'><i class='fa fa-chevron-right' aria-hidden='true'></i>"
+							+ "' "+ejercicioActual+ " ><i class='fa fa-chevron-right' aria-hidden='true'></i>"
 							+ "EJ" + ejemplo.numero + ": " + ejemplo.info + "</a></li>";
 
 						$("#menu").append(enlaceEjemplo);
@@ -233,6 +237,7 @@ $(document).ready(function () {
 				editorHTML.session.setUseWrapMode(true);
 				editorHTML.container.style.background = CONFIG.EditorColorFondo;
 				editorHTML.setShowFoldWidgets(false);
+				editorHTML.setShowPrintMargin(false);
 				editorHTML.container.style.height
 			}
 		});
@@ -254,6 +259,7 @@ $(document).ready(function () {
 				editorCSS.session.setUseWrapMode(true);
 				editorCSS.container.style.background = CONFIG.EditorColorFondo;
 				editorCSS.setShowFoldWidgets(false);
+				editorCSS.setShowPrintMargin(false);
 			}
 		});
 	});
@@ -274,6 +280,7 @@ $(document).ready(function () {
 				editorJS.session.setUseWrapMode(true);
 				editorJS.container.style.background = CONFIG.EditorColorFondo;
 				editorJS.setShowFoldWidgets(false);
+				editorJS.setShowPrintMargin(false);
 			}
 		});
 	});
@@ -293,6 +300,7 @@ $(document).ready(function () {
 				editorTEXT.container.style.background = CONFIG.EditorColorFondo;
 				editorTEXT.session.setUseWrapMode(true);
 				editorTEXT.setShowFoldWidgets(false);
+				editorTEXT.setShowPrintMargin(false);
 				editorTEXT.setReadOnly(true);
 				editorTEXT.renderer.setOption('showLineNumbers', false);
 				editorTEXT.$blockScrolling = Infinity;
@@ -310,6 +318,7 @@ $(document).ready(function () {
 	editorDEV.getSession().setMode("ace/mode/text");
 	editorDEV.container.style.background = CONFIG.EditorColorFondo;
 	editorDEV.setShowFoldWidgets(false);
+	editorDEV.setShowPrintMargin(false);
 	editorDEV.setReadOnly(true);
 	editorDEV.renderer.setOption('showLineNumbers', false);
 	editorDEV.$blockScrolling = Infinity;
@@ -365,7 +374,30 @@ $(document).ready(function () {
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// ASIGNACIÓN DE TODOS EVENTOS CLIC EN LOS BOTONES:																						//
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	$("#exercise").click(function () {
+		alert("modo ejercicio aún por desarrollar")
+
+		$(".exercise-container").show();
+		$(".config-container").hide();
+
+		$("#modal_container").addClass("show");
+		$("#modal_container").css('zIndex', 999);
+		$("#close").focus();
+
+	});
+
+	$("#back").click(function () {
+		alert("anterior ejercicio aún por desarrollar")
+	});
+
+	$("#next").click(function () {
+		alert("siguiente ejercicio aún por desarrollar")
+	});
+
 	$("#config").click(function () {
+		$(".exercise-container").hide();
+		$(".config-container").show();
+
 		$("#modal_container").addClass("show");
 		$("#modal_container").css('zIndex', 999);
 		$("#close").focus();
@@ -375,6 +407,12 @@ $(document).ready(function () {
 		$("#modal_container").removeClass("show");
 		$("#modal_container").css('zIndex', -999);
 	});
+
+	$("#closeEjercicio").click(function () {
+		$("#modal_container").removeClass("show");
+		$("#modal_container").css('zIndex', -999);
+	});
+
 
 	$(".modal-close").click(function (e) {
 		if (e.target !== this) {
@@ -708,7 +746,21 @@ $(document).ready(function () {
 	editorIFRAME.getSession().setMode("ace/mode/html");
 	editorIFRAME.container.style.background = CONFIG.EditorColorFondo;
 	editorIFRAME.setShowFoldWidgets(false);
+	editorIFRAME.setShowPrintMargin(false);
 	editorIFRAME.container.style.height
+
+
+
+	var editorEXERCISE;
+	$("#exercisePanel").text(CONFIG.textoIframe);
+	// Inicializamos el editor html de ACE.
+	editorEXERCISE = ace.edit("iframecode");
+	editorEXERCISE.setTheme("ace/theme/" + CONFIG.EditorTema);
+	editorEXERCISE.getSession().setMode("ace/mode/html");
+	editorEXERCISE.container.style.background = CONFIG.EditorColorFondo;
+	editorEXERCISE.setShowFoldWidgets(false);
+	editorEXERCISE.setShowPrintMargin(false);
+	editorEXERCISE.container.style.height
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//	CONFIG.iframe		bit que determina si al cargar se en modo iframe: sin <header>	y un botón para maximizar		//
@@ -749,15 +801,12 @@ $(document).ready(function () {
 	/*
 	alert(
 		"POR HACER:____________________________________________\n"
-		+ "-Formatear el menú: bonito, tabindex, anterior, siguiente y tutorial \n "
-		+ "-Ancho mínimo de 600px, si es más no se ajusta más \n "
-		+ "-Botón mostrar solo paneles de código o solo resultados --> y <-- \n "
-		+ "-Que en todos los ACE editor rompa linea en lugar de scroll horizontal \n "
+		+ "-Botón mostrar solo paneles de código o solo resultados --> y <-- \n ""
 		+ "-Botón y modo impresión \n "
 		+ "-Todas las demás funciones de botones de opciones \n "
-		+ "-Cookies y botón de reiniciar ejercicio \n "
+		+ "-Botones de anterior y siguiente \n "
+		+ "-Cookies que almacenen el estado actual de HTML, CSS y JS y botón de reiniciar ejercicio de opciones que borra estas cookies \n "
 		+ "-Todo el modo ejercicio \n "
-
 	)*/
 
 
