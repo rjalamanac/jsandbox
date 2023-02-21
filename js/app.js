@@ -842,8 +842,7 @@ $(document).ready(function () {
 			+ "  *Almacenar las Cookies en la variable CONFIG \n"
 			+ "  *Almacenar la posición de los separadores de los paneles en Cookies para que al hacer F5 no se muevan "
 			+ "-Todo el modo ejercicio \n "
-			+ "  *Que el iframe de ejemplo se muestre como imagen en lugar de como HTML\n "
-			+ "-REFACTORIZAR EL CÓDIGO para que quede bien legible y organizado\n "
+			+ "-REFACTORIZAR EL CÓDIGO HTML, CSS y JS para que quede bien legible y organizado\n "
 		)
 	}, 2000);
 
