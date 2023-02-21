@@ -445,7 +445,7 @@ $(document).ready(function () {
 	});
 
 
-	function cerrarModal(){
+	function cerrarModal() {
 		$("#modal_container").removeClass("show");
 		$("#modal_container").css('zIndex', -999);
 		$("#run").focus();
@@ -581,10 +581,58 @@ $(document).ready(function () {
 	// ASIGNACIÓN DE TODOS LOS TECLADO:																						//
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	$(document).bind('keydown', function (e) {
+		// con ESC se cierra todo y nos colocamos en RUN
 		if (e.which == 27) {
 			$("#run").focus();
 			$("#close").click();
 		};
+
+		// F1 ejecuta clic en DOCUMENTACIÓN
+		if (e.which == 112) {
+			$("#switch-text").click();
+			e.preventDefault()
+			e.stopPropagation()
+		};
+
+		// F2 ejecuta clic en HTML
+		if (e.which == 113) {
+			$("#switch-html").click();
+			e.preventDefault()
+			e.stopPropagation()
+		};
+
+		// F3 ejecuta clic en CSS
+		if (e.which == 114) {
+			$("#switch-css").click();
+			e.preventDefault()
+			e.stopPropagation()
+		};
+
+		// F4 ejecuta clic en JS
+		if (e.which == 115) {
+			$("#switch-js").click();
+			e.preventDefault()
+			e.stopPropagation()
+		};
+
+		// F5 ejecuta RUN
+		if (e.which == 116) {
+			$("#run").click();
+			e.preventDefault()
+			e.stopPropagation()
+		};
+
+		// F6 ejecuta clic en CONSOLA
+		if (e.which == 117) {
+			$("#switch-dev").click();
+			e.preventDefault()
+			e.stopPropagation()
+		};
+
+
+
+
+
 	})
 
 	$(".button , .float-button").keypress(function (event) {
