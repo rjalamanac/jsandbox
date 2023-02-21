@@ -35,6 +35,7 @@
 //	QueryString.dark		bit que determina si al cargar se muesrta el tema oscuro.										//
 //								0-> muestra el tema claro.																	//
 //								1-> muestra el tema oscuro.																	//
+//								2-> muestra el tema de alto contraste para daltónicos.										//	
 //  QueryString.panels		mode determina qué paneles se muestran maximizados al cargar. Sus valores son seis bits 0 o 1. 	//
 //								0-> mostrar minimizado.																		//
 //								1-> mostrar maximizado.																		//
@@ -51,9 +52,8 @@
 //																															//
 // Ejemplo de get típico:																									// 
 //																															//
-//	http://localhost/jsandbox/index.html?iframe=0&ud=1&ex=1&mode=demo&runload=1&liveserver=1&view=1&dark=1&panels=111010	//	
-//	https://javierrojascomercio.github.io/jsandbox/index.html?iframe=0&ud=1&ex=1&mode=demo&runload=1&liveserver=1&view=1&dark=1&panels=111010
-//																															//
+// http://localhost/jsandbox/index.html?iframe=0&ud=1&ex=1&mode=demo&runload=1&liveserver=1&view=1&dark=1&panels=111010		//	
+// https://javierrojascomercio.github.io/jsandbox/index.html?iframe=0&ud=1&ex=1&mode=demo&runload=1&liveserver=1&view=1&dark=1&panels=111010
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // LA CONSTANTE CONFIG:																										//
 // Todos los parámetros enviados por get y almacenados en QueryString se vuelcan a CONFIG ////////////////////////////////////
@@ -66,7 +66,7 @@ CONFIG.nombrePaneles = ["#htmlPanel", "#cssPanel", "#jsPanel", "#textPanel", "#o
 //																															//
 // Configuraciones de estilo para los editores de código																	//
 CONFIG.EditorTema = "one_dark";																								//
-CONFIG.EditorColorFondo = "#333";																							//
+CONFIG.EditorColorFondo = "#202020";																							//
 //																															//
 // Antes que nada comprobamos que QueryString esté bien formado, mostramos el tutorial con parámetros por defecto.			//
 // También estaría bien comrpobar que:																						//
@@ -76,6 +76,7 @@ CONFIG.EditorColorFondo = "#333";																							//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 if (
+
 	QueryString.iframe === undefined || QueryString.iframe == "" ||
 	QueryString.ud === undefined || QueryString.ud == "" ||
 	QueryString.ex === undefined || QueryString.ex == "" ||
@@ -115,9 +116,10 @@ if (
 	CONFIG.numPanelsOut = CONFIG.panelsOut.filter(x => x == "1").length;
 	CONFIG.url = window.location.href;
 	CONFIG.textoIframe =
-		"<iframe width='100%' height='500px' \n src='" +
+		"<iframe width='100%' height='500px'\n src='" +
 		CONFIG.url.replace('iframe=0&', 'iframe=1&') + "'\n" +
 		" frameborder='0' \n allowfullscreen='allowfullscreen'>\n</iframe>";
+
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -141,7 +143,9 @@ var editorCSS;
 var editorJS;
 var editorTEXT;
 var editorDEV;
+var editorEXERCISE;
 var textoConsola = "Mensajes de CONSOLA:\n>\n";
+var tabindex = 9; // contador para los tabindex de la página
 
 $(document).ready(function () {
 
@@ -167,11 +171,18 @@ $(document).ready(function () {
 				// Rellemanos el menú 
 				respuesta['menu'].ud.forEach(unidad => {
 					let unidadTxt = "UD " + unidad.numero + ". " + unidad.titulo;
-					$("#menu").append("<li><h3>" + unidadTxt + "</h3></li>");
+					$("#menu").append("<li><h4>" + unidadTxt + "</h4></li>");
+
+
 
 					unidad.ejemplos.ej.forEach(ejemplo => {
+						let ejercicioActual = "";
+						if (unidad.numero == CONFIG.ud && ejemplo.numero == CONFIG.ex) ejercicioActual = "class= 'actual'";
 
-						let enlaceEjemplo = "<li><a href='index.html?"
+
+
+						let enlaceEjemplo = "<li >"
+							+ "<a tabindex = '" + tabindex + "' href='index.html?"
 							+ "iframe=" + CONFIG.iframe + "&"
 							+ "ud=" + unidad.numero + "&"
 							+ "ex=" + ejemplo.numero + "&"
@@ -181,9 +192,11 @@ $(document).ready(function () {
 							+ "view=" + CONFIG.view + "&"
 							+ "dark=" + CONFIG.dark + "&"
 							+ "panels=" + CONFIG.panels.join('')
-							+ "'><i class='fa fa-chevron-right' aria-hidden='true'></i>" + ejemplo.info + "</a></li>";
+							+ "' " + ejercicioActual + " ><i class='fa fa-chevron-right' aria-hidden='true'></i>"
+							+ "EJ" + ejemplo.numero + ": " + ejemplo.info + "</a></li>";
 
 						$("#menu").append(enlaceEjemplo);
+						tabindex++;
 					});
 				});
 				// Rellemanos el info-panel
@@ -222,8 +235,10 @@ $(document).ready(function () {
 				editorHTML = ace.edit("html");
 				editorHTML.setTheme("ace/theme/" + CONFIG.EditorTema);
 				editorHTML.getSession().setMode("ace/mode/html");
+				editorHTML.session.setUseWrapMode(true);
 				editorHTML.container.style.background = CONFIG.EditorColorFondo;
 				editorHTML.setShowFoldWidgets(false);
+				editorHTML.setShowPrintMargin(false);
 				editorHTML.container.style.height
 			}
 		});
@@ -242,8 +257,10 @@ $(document).ready(function () {
 				editorCSS = ace.edit("css");
 				editorCSS.setTheme("ace/theme/" + CONFIG.EditorTema);
 				editorCSS.getSession().setMode("ace/mode/css");
+				editorCSS.session.setUseWrapMode(true);
 				editorCSS.container.style.background = CONFIG.EditorColorFondo;
 				editorCSS.setShowFoldWidgets(false);
+				editorCSS.setShowPrintMargin(false);
 			}
 		});
 	});
@@ -261,15 +278,17 @@ $(document).ready(function () {
 				editorJS = ace.edit("js");
 				editorJS.setTheme("ace/theme/" + CONFIG.EditorTema);
 				editorJS.getSession().setMode("ace/mode/javascript");
+				editorJS.session.setUseWrapMode(true);
 				editorJS.container.style.background = CONFIG.EditorColorFondo;
 				editorJS.setShowFoldWidgets(false);
+				editorJS.setShowPrintMargin(false);
 			}
 		});
 	});
-	//  editorTXT se rellena con "statement.txt"
+	//  editorTXT se rellena con "documentation.txt"
 	$(() => {
 		$.ajax({
-			url: 'examples/ud' + CONFIG.ud + '/ex' + CONFIG.ex + '/statement.txt',
+			url: 'examples/ud' + CONFIG.ud + '/ex' + CONFIG.ex + '/documentation.txt',
 			type: 'GET',
 			async: true,
 			success: (respuesta) => {
@@ -280,14 +299,56 @@ $(document).ready(function () {
 				editorTEXT.setTheme("ace/theme/" + CONFIG.EditorTema);
 				editorTEXT.getSession().setMode("ace/mode/text");
 				editorTEXT.container.style.background = CONFIG.EditorColorFondo;
+				editorTEXT.session.setUseWrapMode(true);
 				editorTEXT.setShowFoldWidgets(false);
+				editorTEXT.setShowPrintMargin(false);
 				editorTEXT.setReadOnly(true);
 				editorTEXT.renderer.setOption('showLineNumbers', false);
 				editorTEXT.$blockScrolling = Infinity;
-				editorTEXT.setValue(respuesta);
+
 			}
 		});
 	});
+
+	//  exercisePanel se rellena con "exercise.txt"
+	$(() => {
+		$.ajax({
+			url: 'examples/ud' + CONFIG.ud + '/ex' + CONFIG.ex + '/exercise.txt',
+			type: 'GET',
+			async: true,
+			success: (respuesta) => {
+				// Rellemanos el editor text de ACE.
+				$("#exercisePanel").text(respuesta);
+				// Inicializamos el editor text de ACE.
+				editorEXERCISE = ace.edit("exercisePanel");
+				editorEXERCISE.setTheme("ace/theme/" + CONFIG.EditorTema);
+				editorEXERCISE.getSession().setMode("ace/mode/text");
+				editorEXERCISE.container.style.background = CONFIG.EditorColorFondo;
+				editorEXERCISE.session.setUseWrapMode(true);
+				editorEXERCISE.setShowFoldWidgets(false);
+				editorEXERCISE.setShowPrintMargin(false);
+				editorEXERCISE.setReadOnly(true);
+				editorEXERCISE.renderer.setOption('showLineNumbers', false);
+				editorEXERCISE.$blockScrolling = Infinity;
+			}
+		});
+	});
+
+	/*var editorIFRAME;
+	$("#iframecode").text(CONFIG.textoIframe);
+	
+	editorIFRAME = ace.edit("iframecode");
+	editorIFRAME.setTheme("ace/theme/" + CONFIG.EditorTema);
+	editorIFRAME.getSession().setMode("ace/mode/html");
+	editorIFRAME.container.style.background = CONFIG.EditorColorFondo;
+	editorIFRAME.setShowFoldWidgets(false);
+	editorIFRAME.setShowPrintMargin(false);
+	editorIFRAME.container.style.height
+
+
+		
+
+	*/
 
 	// Rellemanos el editor dev de ACE. Representa la consola, no es editable ni muestra números de línea.
 	//  No se inicializa cargando un archivo, como los anteriores, sino que lo hace
@@ -298,10 +359,11 @@ $(document).ready(function () {
 	editorDEV.getSession().setMode("ace/mode/text");
 	editorDEV.container.style.background = CONFIG.EditorColorFondo;
 	editorDEV.setShowFoldWidgets(false);
+	editorDEV.setShowPrintMargin(false);
 	editorDEV.setReadOnly(true);
 	editorDEV.renderer.setOption('showLineNumbers', false);
 	editorDEV.$blockScrolling = Infinity;
-	editorDEV.setValue(textoConsola);
+
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// ASIGNACIÓN DE TODOS LOS EVENTOS:																						//
@@ -350,15 +412,51 @@ $(document).ready(function () {
 		}
 	});
 
-	// Todos los eventos clic de los botones
-	$("#config").click(function () {
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// ASIGNACIÓN DE TODOS EVENTOS CLIC EN LOS BOTONES:																						//
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	$("#exercise").click(function () {
+		alert("modo ejercicio aún por desarrollar")
+
+		$(".exercise-container").show();
+		$(".config-container").hide();
+
 		$("#modal_container").addClass("show");
-		$("#modal_container").css('zIndex', 998);
+		$("#modal_container").css('zIndex', 999);
+		$("#closeExercise").focus();
+
 	});
 
-	$("#close").click(function () {
+	$("#back").click(function () {
+		alert("anterior ejercicio aún por desarrollar")
+	});
+
+	$("#next").click(function () {
+		alert("siguiente ejercicio aún por desarrollar")
+	});
+
+	$("#config").click(function () {
+		$(".exercise-container").hide();
+		$(".config-container").show();
+
+		$("#modal_container").addClass("show");
+		$("#modal_container").css('zIndex', 999);
+		$("#close").focus();
+	});
+
+
+	function cerrarModal(){
 		$("#modal_container").removeClass("show");
-		$("#modal_container").css('zIndex', 0);
+		$("#modal_container").css('zIndex', -999);
+		$("#run").focus();
+	}
+
+	$("#close").click(function () {
+		cerrarModal()
+	});
+
+	$("#closeExercise").click(function () {
+		cerrarModal()
 	});
 
 	$(".modal-close").click(function (e) {
@@ -366,10 +464,12 @@ $(document).ready(function () {
 			return;
 		}
 		else {
-			$("#modal_container").removeClass("show");
-			$("#modal_container").css('zIndex', 0);
+			cerrarModal()
 		}
+	});
 
+	$("#reset").click(function () {
+		alert("Falta de implementar, primero hay que gestrionar las cookies");
 	});
 
 	$("#runload").click(function () {
@@ -393,6 +493,9 @@ $(document).ready(function () {
 	});
 
 	$("#test").click(function () {
+
+		alert("Falta de implementar, primero hay que hacer modal de preview del ejericicio y no cargar css ni el js");
+
 		let url = CONFIG.url;
 		if (CONFIG.mode == "demo") {
 			url = url.replace('mode=demo&', 'mode=test&')
@@ -403,18 +506,51 @@ $(document).ready(function () {
 	});
 
 	$("#dark").click(function () {
+
+		alert("Falta de implementar, primero hay que hacer todos los estilos claros");
+
 		let url = CONFIG.url;
 		if (CONFIG.dark == "0") {
 			url = url.replace('dark=0&', 'dark=1&')
-		} else {
+			url = url.replace('dark=2&', 'dark=1&')
+		}
+
+		if (CONFIG.dark == "1") {
 			url = url.replace('dark=1&', 'dark=0&')
+			url = url.replace('dark=2&', 'dark=0&')
+		}
+
+		if (CONFIG.dark == "2") {
+			url = url.replace('dark=0&', 'dark=1&')
+			url = url.replace('dark=2&', 'dark=1&')
+		}
+		window.location.href = url;
+	});
+
+	$("#colorblind").click(function () {
+
+		alert("Falta de implementar, primero hay que hacer todos los estilos claros, oscuros y validar con WCAG 2");
+
+		let url = CONFIG.url;
+		if (CONFIG.dark == "0" || CONFIG.dark == "1") {
+			url = url.replace('dark=0&', 'dark=2&')
+			url = url.replace('dark=1&', 'dark=2&')
+		}
+
+		if (CONFIG.dark == "2") {
+			url = url.replace('dark=0&', 'dark=1&')
+			url = url.replace('dark=2&', 'dark=1&')
 		}
 		window.location.href = url;
 	});
 
 	$("#view").click(function () {
+
+		alert("Falta de implementar, primero hay que hacer todos los estilos horizontales");
+
 		let url = CONFIG.url;
 		if (CONFIG.view == "0") {
+
 			url = url.replace('view=0&', 'view=1&')
 		} else {
 			url = url.replace('view=1&', 'view=0&')
@@ -425,10 +561,8 @@ $(document).ready(function () {
 	$("#iframe").click(function () {
 		var $bridge = $("<input>")
 		$("body").append($bridge);
-		$bridge.val($("#iframecode").text()
-			.replace('12345', '')  //esto es una pequeña ñapa por el formato en el que davuelve el textoel editor Ace.
-			.replace('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', ''))	// esto también.
-			.select();
+
+		$bridge.val(editorIFRAME.getValue()).select();
 		document.execCommand("copy");
 		$bridge.remove();
 
@@ -443,23 +577,22 @@ $(document).ready(function () {
 		window.open(CONFIG.url);
 	});
 
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// ASIGNACIÓN DE TODOS LOS TECLADO:																						//
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	$(document).bind('keydown', function (e) {
+		if (e.which == 27) {
+			$("#run").focus();
+			$("#close").click();
+		};
+	})
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	$(".button , .float-button").keypress(function (event) {
+		var keycode = (event.keyCode ? event.keyCode : event.which);
+		if (keycode == '13') {
+			event.target.click();
+		}
+	});
 
 
 
@@ -530,6 +663,14 @@ $(document).ready(function () {
 				$(CONFIG.nombrePaneles[index]).css("height: height: 0px;");
 			}
 		}
+
+		// Ajustamos la altura si estamos en el modo iframe
+		ajustaAltoIframe()
+
+
+
+
+
 	};
 
 	// setHeightPanels() se debe llamar siempre que se quiera actualizar el tamaño de los paneles
@@ -610,12 +751,22 @@ $(document).ready(function () {
 		$("#text-test").text("Desctiva Modo ejericicio");
 	}
 
-	if (CONFIG.dark == "0") {
+	if (CONFIG.dark == "0" || CONFIG.dark == "2") {
 		$("#dark").addClass("button-disable");
 		$("#text-dark").text("Activa Modo oscuro");
-	} else {
+	}
+	else {
 		$("#dark").removeClass("button-disable");
 		$("#text-dark").text("Desctiva Modo oscuro");
+	}
+
+	if (CONFIG.dark == "0" || CONFIG.dark == "1") {
+		$("#colorblind").addClass("button-disable");
+		$("#text-colorblind").text("Activa Modo alto contraste");
+	}
+	else {
+		$("#colorblind").removeClass("button-disable");
+		$("#text-colorblind").text("Desctiva Modo alto contraste");
 	}
 
 	if (CONFIG.view == "0") {
@@ -634,7 +785,10 @@ $(document).ready(function () {
 	editorIFRAME.getSession().setMode("ace/mode/html");
 	editorIFRAME.container.style.background = CONFIG.EditorColorFondo;
 	editorIFRAME.setShowFoldWidgets(false);
+	editorIFRAME.setShowPrintMargin(false);
 	editorIFRAME.container.style.height
+
+
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//	CONFIG.iframe		bit que determina si al cargar se en modo iframe: sin <header>	y un botón para maximizar		//
@@ -642,18 +796,56 @@ $(document).ready(function () {
 	//							1-> oculta el <header> y muestra le botón #go-to-web.										//
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	if (CONFIG.iframe == "0") {
+	function ajustaAltoIframe() {
+		if (CONFIG.iframe == "1") {
+			$(".panelL").css({ height: 'calc(((100%)) - 66px' });
+			$(".panelM").css({ height: 'calc(((100%) / 2) - 33px' });
+			$(".panelS").css({ height: 'calc(((100%) / 3) - 22px' });
+
+		}
+	}
+
+	ajustaAltoIframe()
+
+	if (CONFIG.iframe == "1") {
+		$("#go-to-web").show();
+		$("header").hide();
+		$(".container").css("margin-top", "0px");
+
+
+	} else {
 		$("#go-to-web").hide();
 		$("header").show();
 		$(".container").css("margin-top", "52px");
 
-	} else {
-		$("#go-to-web").show();
-		$("header").hide();
-		$(".container").css("margin-top", "0px");
 	}
 
+	$("#run").focus();
 
+	// TO DO para EMAR
+	setTimeout(function () {
+		alert(
+			"POR HACER:____________________________________________\n"
+			+ "-Proyecto: documentar lo que hay hecho, y cómo está hecho \n "
+			+ "-Que funcione bien la consola con el botón RUN, ahora funciona solo al cargar y con eventos \n "
+			+ "-Todas las demás funciones de botones de opciones (probar todos) \n "
+			+ "  *Botón Reiniciar el ejericicio (borra las Cookies que almacenan el HTML, CSS y JS) \n "
+			+ "  *Botón Descarga el ejercicio \n "
+			+ "       -Que descargue el contenido de  HTML, CSS y JS, no de los archivos \n "
+			+ "       -Que descargue las imágenes \n "
+			+ "  *Botón imprimir \n "
+			+ "  *Botón y modo ejercicio \n "
+			+ "  *Modo oscuro(ya está hecho), claro y alto contraste \n "
+			+ "  *Modo vertical(ya está hecho) y horizontal \n "
+			+ "-Botones de anterior y siguiente ejericicio en el menú \n "
+			+ "-Cookies que almacenen el estado actual de HTML, CSS y JS y botón de reiniciar ejercicio de opciones que borra estas cookies \n"
+			+ "  *Almacenar las Cookies en la variable CONFIG \n"
+			+ "  *Almacenar la posición de los separadores de los paneles en Cookies para que al hacer F5 no se muevan "
+			+ "-Todo el modo ejercicio \n "
+			+ "  *Que el iframe de ejemplo se muestre como imagen en lugar de como HTML\n "
+			+ "-REFACTORIZAR EL CÓDIGO para que quede bien legible y organizado\n "
+		)
+	}, 2000);
 
 
 });

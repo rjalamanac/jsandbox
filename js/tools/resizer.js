@@ -45,15 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         resizer.parentNode.getBoundingClientRect().height;
                     prevSibling.style.height = `${h}%`;
 
-                ///////////////////////////////////////ALERTA//////////////////////////////////////////////////////////////
-                // En Ace Editor es nesario reescalar los editores para que se adapten al nuevo tamaño de su div.
-                // Si no se hace cambia su tamaño pero no el tamaño de lo que muestra, por lo que corta líneas de código.
-                editorHTML.resize();
-                editorCSS.resize();
-                editorJS.resize();
-                editorTEXT.resize();
-                editorDEV.resize();
-                ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
 
                     break;
                 case 'horizontal':
@@ -67,6 +59,16 @@ document.addEventListener('DOMContentLoaded', function () {
                     nextSibling.style.width = `${widthOutput}%`;
                     break;
             }
+
+                ///////////////////////////////////////ALERTA//////////////////////////////////////////////////////////////
+                // En Ace Editor es nesario reescalar los editores para que se adapten al nuevo tamaño de su div.
+                // Si no se hace cambia su tamaño pero no el tamaño de lo que muestra, por lo que corta líneas de código.
+                editorHTML.resize();
+                editorCSS.resize();
+                editorJS.resize();
+                editorTEXT.resize();
+                editorDEV.resize();
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             const cursor = direction === 'horizontal' ? 'col-resize' : 'row-resize';
             resizer.style.cursor = cursor;
