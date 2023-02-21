@@ -277,6 +277,12 @@ header {
   text-decoration: none;
 }
 
+#nav-content h4 a {
+  padding: 2px 10px;
+  display: block;
+  text-decoration: none;
+}
+
 #nav-content li:hover {
   color: #8360c3;
 }
@@ -435,7 +441,6 @@ iframe {
   background-color: var(--color-fondo-dark);
   height: 90%;
   margin-top: 50px;
-  border-radius: 2px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   text-align: left;
   overflow-x: hidden;
@@ -469,7 +474,19 @@ iframe {
   margin: 5px 75px;
 }
 
-#iframecode {
+#iframecode, #exercisePanel {
   width: 90%;
   height: 100px;
+}
+
+#exercisePanel {
+  width: 95%;
+  height: 200px;
+
+}
+
+.panelExercise{
+  width: 95%;
+  height: 500px;
+
 }

@@ -143,6 +143,7 @@ var editorCSS;
 var editorJS;
 var editorTEXT;
 var editorDEV;
+var editorEXERCISE;
 var textoConsola = "Mensajes de CONSOLA:\n>\n";
 var tabindex = 9; // contador para los tabindex de la página
 
@@ -172,16 +173,16 @@ $(document).ready(function () {
 					let unidadTxt = "UD " + unidad.numero + ". " + unidad.titulo;
 					$("#menu").append("<li><h4>" + unidadTxt + "</h4></li>");
 
-					
+
 
 					unidad.ejemplos.ej.forEach(ejemplo => {
 						let ejercicioActual = "";
-						if (unidad.numero == CONFIG.ud && ejemplo.numero ==CONFIG.ex) ejercicioActual="class= 'actual'";
+						if (unidad.numero == CONFIG.ud && ejemplo.numero == CONFIG.ex) ejercicioActual = "class= 'actual'";
 
 
 
 						let enlaceEjemplo = "<li >"
-							+"<a tabindex = '"+tabindex+"' href='index.html?"
+							+ "<a tabindex = '" + tabindex + "' href='index.html?"
 							+ "iframe=" + CONFIG.iframe + "&"
 							+ "ud=" + unidad.numero + "&"
 							+ "ex=" + ejemplo.numero + "&"
@@ -191,7 +192,7 @@ $(document).ready(function () {
 							+ "view=" + CONFIG.view + "&"
 							+ "dark=" + CONFIG.dark + "&"
 							+ "panels=" + CONFIG.panels.join('')
-							+ "' "+ejercicioActual+ " ><i class='fa fa-chevron-right' aria-hidden='true'></i>"
+							+ "' " + ejercicioActual + " ><i class='fa fa-chevron-right' aria-hidden='true'></i>"
 							+ "EJ" + ejemplo.numero + ": " + ejemplo.info + "</a></li>";
 
 						$("#menu").append(enlaceEjemplo);
@@ -284,10 +285,10 @@ $(document).ready(function () {
 			}
 		});
 	});
-	//  editorTXT se rellena con "statement.txt"
+	//  editorTXT se rellena con "documentation.txt"
 	$(() => {
 		$.ajax({
-			url: 'examples/ud' + CONFIG.ud + '/ex' + CONFIG.ex + '/statement.txt',
+			url: 'examples/ud' + CONFIG.ud + '/ex' + CONFIG.ex + '/documentation.txt',
 			type: 'GET',
 			async: true,
 			success: (respuesta) => {
@@ -304,10 +305,50 @@ $(document).ready(function () {
 				editorTEXT.setReadOnly(true);
 				editorTEXT.renderer.setOption('showLineNumbers', false);
 				editorTEXT.$blockScrolling = Infinity;
-				editorTEXT.setValue(respuesta);
+
 			}
 		});
 	});
+
+	//  exercisePanel se rellena con "exercise.txt"
+	$(() => {
+		$.ajax({
+			url: 'examples/ud' + CONFIG.ud + '/ex' + CONFIG.ex + '/exercise.txt',
+			type: 'GET',
+			async: true,
+			success: (respuesta) => {
+				// Rellemanos el editor text de ACE.
+				$("#exercisePanel").text(respuesta);
+				// Inicializamos el editor text de ACE.
+				editorEXERCISE = ace.edit("exercisePanel");
+				editorEXERCISE.setTheme("ace/theme/" + CONFIG.EditorTema);
+				editorEXERCISE.getSession().setMode("ace/mode/text");
+				editorEXERCISE.container.style.background = CONFIG.EditorColorFondo;
+				editorEXERCISE.session.setUseWrapMode(true);
+				editorEXERCISE.setShowFoldWidgets(false);
+				editorEXERCISE.setShowPrintMargin(false);
+				editorEXERCISE.setReadOnly(true);
+				editorEXERCISE.renderer.setOption('showLineNumbers', false);
+				editorEXERCISE.$blockScrolling = Infinity;
+			}
+		});
+	});
+
+	/*var editorIFRAME;
+	$("#iframecode").text(CONFIG.textoIframe);
+	
+	editorIFRAME = ace.edit("iframecode");
+	editorIFRAME.setTheme("ace/theme/" + CONFIG.EditorTema);
+	editorIFRAME.getSession().setMode("ace/mode/html");
+	editorIFRAME.container.style.background = CONFIG.EditorColorFondo;
+	editorIFRAME.setShowFoldWidgets(false);
+	editorIFRAME.setShowPrintMargin(false);
+	editorIFRAME.container.style.height
+
+
+		
+
+	*/
 
 	// Rellemanos el editor dev de ACE. Representa la consola, no es editable ni muestra números de línea.
 	//  No se inicializa cargando un archivo, como los anteriores, sino que lo hace
@@ -322,7 +363,7 @@ $(document).ready(function () {
 	editorDEV.setReadOnly(true);
 	editorDEV.renderer.setOption('showLineNumbers', false);
 	editorDEV.$blockScrolling = Infinity;
-	editorDEV.setValue(textoConsola);
+
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// ASIGNACIÓN DE TODOS LOS EVENTOS:																						//
@@ -382,7 +423,7 @@ $(document).ready(function () {
 
 		$("#modal_container").addClass("show");
 		$("#modal_container").css('zIndex', 999);
-		$("#close").focus();
+		$("#closeExercise").focus();
 
 	});
 
@@ -403,24 +444,27 @@ $(document).ready(function () {
 		$("#close").focus();
 	});
 
+
+	function cerrarModal(){
+		$("#modal_container").removeClass("show");
+		$("#modal_container").css('zIndex', -999);
+		$("#run").focus();
+	}
+
 	$("#close").click(function () {
-		$("#modal_container").removeClass("show");
-		$("#modal_container").css('zIndex', -999);
+		cerrarModal()
 	});
 
-	$("#closeEjercicio").click(function () {
-		$("#modal_container").removeClass("show");
-		$("#modal_container").css('zIndex', -999);
+	$("#closeExercise").click(function () {
+		cerrarModal()
 	});
-
 
 	$(".modal-close").click(function (e) {
 		if (e.target !== this) {
 			return;
 		}
 		else {
-			$("#modal_container").removeClass("show");
-			$("#modal_container").css('zIndex', -999);
+			cerrarModal()
 		}
 	});
 
@@ -469,14 +513,14 @@ $(document).ready(function () {
 		if (CONFIG.dark == "0") {
 			url = url.replace('dark=0&', 'dark=1&')
 			url = url.replace('dark=2&', 'dark=1&')
-		} 
-		
-		if (CONFIG.dark == "1"){
+		}
+
+		if (CONFIG.dark == "1") {
 			url = url.replace('dark=1&', 'dark=0&')
 			url = url.replace('dark=2&', 'dark=0&')
 		}
 
-		if (CONFIG.dark == "2"){
+		if (CONFIG.dark == "2") {
 			url = url.replace('dark=0&', 'dark=1&')
 			url = url.replace('dark=2&', 'dark=1&')
 		}
@@ -491,19 +535,14 @@ $(document).ready(function () {
 		if (CONFIG.dark == "0" || CONFIG.dark == "1") {
 			url = url.replace('dark=0&', 'dark=2&')
 			url = url.replace('dark=1&', 'dark=2&')
-		} 
+		}
 
-		if (CONFIG.dark == "2"){
+		if (CONFIG.dark == "2") {
 			url = url.replace('dark=0&', 'dark=1&')
 			url = url.replace('dark=2&', 'dark=1&')
 		}
 		window.location.href = url;
 	});
-
-
-
-	
-
 
 	$("#view").click(function () {
 
@@ -715,7 +754,7 @@ $(document).ready(function () {
 	if (CONFIG.dark == "0" || CONFIG.dark == "2") {
 		$("#dark").addClass("button-disable");
 		$("#text-dark").text("Activa Modo oscuro");
-	} 
+	}
 	else {
 		$("#dark").removeClass("button-disable");
 		$("#text-dark").text("Desctiva Modo oscuro");
@@ -724,7 +763,7 @@ $(document).ready(function () {
 	if (CONFIG.dark == "0" || CONFIG.dark == "1") {
 		$("#colorblind").addClass("button-disable");
 		$("#text-colorblind").text("Activa Modo alto contraste");
-	} 
+	}
 	else {
 		$("#colorblind").removeClass("button-disable");
 		$("#text-colorblind").text("Desctiva Modo alto contraste");
@@ -750,17 +789,6 @@ $(document).ready(function () {
 	editorIFRAME.container.style.height
 
 
-
-	var editorEXERCISE;
-	$("#exercisePanel").text(CONFIG.textoIframe);
-	// Inicializamos el editor html de ACE.
-	editorEXERCISE = ace.edit("iframecode");
-	editorEXERCISE.setTheme("ace/theme/" + CONFIG.EditorTema);
-	editorEXERCISE.getSession().setMode("ace/mode/html");
-	editorEXERCISE.container.style.background = CONFIG.EditorColorFondo;
-	editorEXERCISE.setShowFoldWidgets(false);
-	editorEXERCISE.setShowPrintMargin(false);
-	editorEXERCISE.container.style.height
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//	CONFIG.iframe		bit que determina si al cargar se en modo iframe: sin <header>	y un botón para maximizar		//
@@ -792,23 +820,32 @@ $(document).ready(function () {
 
 	}
 
-
-
-
-
-
-	// TO DO
-	/*
-	alert(
-		"POR HACER:____________________________________________\n"
-		+ "-Botón mostrar solo paneles de código o solo resultados --> y <-- \n ""
-		+ "-Botón y modo impresión \n "
-		+ "-Todas las demás funciones de botones de opciones \n "
-		+ "-Botones de anterior y siguiente \n "
-		+ "-Cookies que almacenen el estado actual de HTML, CSS y JS y botón de reiniciar ejercicio de opciones que borra estas cookies \n "
-		+ "-Todo el modo ejercicio \n "
-	)*/
-
-
 	$("#run").focus();
+
+	// TO DO para EMAR
+	setTimeout(function () {
+		alert(
+			"POR HACER:____________________________________________\n"
+			+ "-Proyecto: documentar lo que hay hecho, y cómo está hecho \n "
+			+ "-Que funcione bien la consola con el botón RUN, ahora funciona solo al cargar y con eventos \n "
+			+ "-Todas las demás funciones de botones de opciones (probar todos) \n "
+			+ "  *Botón Reiniciar el ejericicio (borra las Cookies que almacenan el HTML, CSS y JS) \n "
+			+ "  *Botón Descarga el ejercicio \n "
+			+ "       -Que descargue el contenido de  HTML, CSS y JS, no de los archivos \n "
+			+ "       -Que descargue las imágenes \n "
+			+ "  *Botón imprimir \n "
+			+ "  *Botón y modo ejercicio \n "
+			+ "  *Modo oscuro(ya está hecho), claro y alto contraste \n "
+			+ "  *Modo vertical(ya está hecho) y horizontal \n "
+			+ "-Botones de anterior y siguiente ejericicio en el menú \n "
+			+ "-Cookies que almacenen el estado actual de HTML, CSS y JS y botón de reiniciar ejercicio de opciones que borra estas cookies \n"
+			+ "  *Almacenar las Cookies en la variable CONFIG \n"
+			+ "  *Almacenar la posición de los separadores de los paneles en Cookies para que al hacer F5 no se muevan "
+			+ "-Todo el modo ejercicio \n "
+			+ "  *Que el iframe de ejemplo se muestre como imagen en lugar de como HTML\n "
+			+ "-REFACTORIZAR EL CÓDIGO para que quede bien legible y organizado\n "
+		)
+	}, 2000);
+
+
 });
