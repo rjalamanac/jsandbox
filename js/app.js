@@ -5,7 +5,7 @@
 * Lo he desarrollado como refuerzo para que compruebes de manera rápida los ejemplos de clase pero puedes usarlo como quieras.
 * Si consigues crear algo digno de mención a partir de este código no ovides enviarme una copia.
 *
-* Date: 2023-02-14
+* Date: 2023-02-22
 */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -46,10 +46,6 @@
 //									---------------------------------------------------------								//
 //									|	1	|	1	|0	|	0		|	1		|	0		|								//
 //									---------------------------------------------------------								//
-//																															//
-// 						 	QueryString.modee = "js"; Muestra los paneles html y js.										//
-//  						QueryString.mode = "css"; Muestra los paneles html y css.										//
-//																															//
 // Ejemplo de get típico:																									// 
 //																															//
 // http://localhost/jsandbox/index.html?iframe=0&ud=1&ex=1&mode=demo&runload=1&liveserver=1&view=1&dark=1&panels=111010		//	
@@ -57,7 +53,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // LA CONSTANTE CONFIG:																										//
 // Todos los parámetros enviados por get y almacenados en QueryString se vuelcan a CONFIG ////////////////////////////////////
-CONFIG = QueryString;																									//
+CONFIG = QueryString;																										//
 // Todos los parámetros de configuración están encapsulados en el objeto CONFIG. Si necesitas algún dato, ESTÁ AQUÍ.		//
 //																															//
 // Nombres de los paneles para poder añadir eventos y atributos mediante un foreach y no repertir 6 veces el mismo código	//
@@ -65,9 +61,14 @@ CONFIG.nombreToggles = ["#switch-html", "#switch-css", "#switch-js", "#switch-te
 CONFIG.nombrePaneles = ["#htmlPanel", "#cssPanel", "#jsPanel", "#textPanel", "#outputPanel", "#devPanel"];					//
 //																															//
 // Configuraciones de estilo para los editores de código																	//
-CONFIG.EditorTema = "one_dark";																								//
-CONFIG.EditorColorFondo = "#202020";																							//
+CONFIG.EditorTema = "one_dark";		
+// en la ruta: js/tools/ace están todos los temas disponibles con el nombre theme-<nombre>.js								//
+CONFIG.EditorColorFondo = "#202020";																						
 //																															//
+
+// CONFIG también deberá almacenar las Cookies 	cuando se implementen														//
+
+
 // Antes que nada comprobamos que QueryString esté bien formado, mostramos el tutorial con parámetros por defecto.			//
 // También estaría bien comrpobar que:																						//
 //	-no se introduce un número de unidad o ejemplo inexistente o que el modo... 											//
@@ -125,8 +126,8 @@ if (
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // INICIALIZACIÓN DE TODOS LOS PANELES A PARTIR DE :																		//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//		- CONFIG que almacena los parámetros GET y todas las configuracione.												//
-// 		- LOS ARCHIVOS menu.json, doc.html style.css script.js Y statement.txt												//
+//		- CONFIG almacena los parámetros GET y todas las configuraciones.													//
+// 		- LOS ARCHIVOS menu.json, doc.html style.css script.js, documentation.txt y exercise.txt							//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Estas variables almacenan en todo momento lo que se ha escrito en cada panel.											//
 // Al cargar la página se rellenan a partir de archivos de la ruta "examples/ud-/ex-", 										//
@@ -134,7 +135,8 @@ if (
 //  - editorHTML se rellena con "doc.html"																					//
 //  - editorCSS se rellena con "style.css"																					//
 //  - editorJS se rellena con "script.js"																					//
-//	- editorTXT se rellena con "statement.txt"																				//	
+//	- editorTXT se rellena con "documentation.txt"																			//
+//	- editorEXERCISE se rellena con "exercise.txt"																			//
 //  - editorDEV se rellena a partir de las salidas de consola capturadas por "js/tools/console.js"							//	
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
