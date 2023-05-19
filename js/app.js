@@ -61,9 +61,9 @@ CONFIG.nombreToggles = ["#switch-html", "#switch-css", "#switch-js", "#switch-te
 CONFIG.nombrePaneles = ["#htmlPanel", "#cssPanel", "#jsPanel", "#textPanel", "#outputPanel", "#devPanel"];					//
 //																															//
 // Configuraciones de estilo para los editores de código																	//
-CONFIG.EditorTema = "one_dark";		
+CONFIG.EditorTema = "one_dark";
 // en la ruta: js/tools/ace están todos los temas disponibles con el nombre theme-<nombre>.js								//
-CONFIG.EditorColorFondo = "#202020";																						
+CONFIG.EditorColorFondo = "#202020";
 //																															//
 
 // CONFIG también deberá almacenar las Cookies 	cuando se implementen														//
@@ -872,7 +872,8 @@ $(document).ready(function () {
 
 	$("#run").focus();
 
-	// TO DO para EMAR
+	// TO DO
+	/*
 	setTimeout(function () {
 		alert(
 			"POR HACER:____________________________________________\n"
@@ -895,6 +896,6 @@ $(document).ready(function () {
 			+ "-REFACTORIZAR EL CÓDIGO HTML, CSS y JS para que quede bien legible y organizado\n "
 		)
 	}, 2000);
-
+	*/
 
 });
