@@ -1,0 +1,5 @@
+Crea una página web que demuestre cómo crear una clase en JavaScript. Debes declarar una clase llamada "Persona" que tenga propiedades como nombre y edad, y un método llamado "saludar" que devuelve un saludo.
+
+Luego, crea una instancia de la clase "Persona" y llama al método "saludar" de la instancia. Muestra el saludo en un párrafo en la página.
+
+Utiliza HTML para crear la estructura de la página y JavaScript para definir la clase, crear la instancia y llamar al método. Asegúrate de que el párrafo tenga un ID para que pueda ser referenciado desde JavaScript.

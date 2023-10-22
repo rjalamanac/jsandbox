@@ -1,10 +1,10 @@
-4- Recoge el alto y el ancho de una tabla mediante prompt. Escribe en el body (document.write()) una tabla de esas medidas, que muestre los números desde el 1 hasta el número de celdas.
+Crea una página web que demuestre cómo trabajar con arrays en JavaScript. Debes declarar un array llamado "colores" que contenga varios colores.
 
-	Por ejemplo, para las entradas: alto 2, ancho 5.
+Luego, realiza las siguientes operaciones en el array:
+1. Agrega un nuevo color al final del array.
+2. Elimina el segundo color del array.
+3. Ordena el array alfabéticamente.
 
-	El programa debe escribir en la página:
+Crea un mensaje que incluya los colores después de realizar estas operaciones y muéstralo en un párrafo en la página.
 
-	1	2	3	4	5
-	6	7	8	9	10
-
-Ayuda: document.write("<table>");
+Utiliza HTML para crear la estructura de la página y JavaScript para definir el array y realizar las operaciones. Asegúrate de que el párrafo tenga un ID para que pueda ser referenciado desde JavaScript.

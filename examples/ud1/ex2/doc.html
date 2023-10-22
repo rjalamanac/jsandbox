@@ -1,69 +1,23 @@
-<div id="barra">
-    <i id="lupa" class="fa fa-search" aria-hidden="true"></i>
-    <i id="iconoInstagram" class="fa fa-instagram" aria-hidden="true"></i>
-    <img id="nombreInstagram" src="examples/ud1/ex2/img/logo.png"></img>
-    <input id="busqueda" placeholder="Busca" type="text">
-</div>
-<div id="publicacion">
-    <div id="foto">
-        <img src="examples/ud1/ex2/img/rosalia.jpg" alt="Foto de rosalia">
-        <span id="iconoEtiquetados" class="fa-stack fa-2x">
-            <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
-            <i class="fa fa-user fa-stack-1x" aria-hidden="true"></i>
-            
-        </span>
-        
+<!DOCTYPE html>
+<html lang="es">
 
-    </div>
-    
-    <div id="info">
+<head>
+    <meta charset="UTF-8">
+    <title>Validación de Formulario</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
 
-        <div id="autor">
-            <img class="fotoPerfil conHistoria" src="examples/ud1/ex2/img/perfil.jpg" alt="">
-            <div id="textoAutor">
-                <p><span id="nombreAutor">rosalia.vt</span> <i class="fa fa-check-circle" aria-hidden="true"></i> • <span id="seguir">Seguir</span></p>
-                <p id="localizacion">Los Angeles, California</p>
-            </div>
-            <i id="opciones" class="fa fa-ellipsis-h" aria-hidden="true"></i>
-        </div>
+<body>
+    <h1>Formulario de Registro</h1>
+    <form id="registrationForm">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" required>
+        <button type="submit">Enviar</button>
+    </form>
+    <p id="message"></p>
+    <script src="script.js"></script>
+</body>
 
-        <div id="comentarios">
-            <div class="comentario">
-                <img class="fotoPerfil conHistoria" src="examples/ud1/ex2/img/perfil.jpg" alt="">
-                <div class="textoComentario">
-                    <p><span id="nombreAutor">rosalia.vt</span> <i class="fa fa-check-circle" aria-hidden="true"></i> Performing en L.A this weekend CALIBASHHHHHHH🤍 hiiihi</p>
-                </div>
-                <div class="infoComentario">
-                    <span class="tiempoPublicacion">4 sem </span>
-                </div>
-            </div>
-            <p id="añadirComentario"><span class="fa-stack fa-2x">
-                <i class="fa fa-circle-thin fa-stack-2x" aria-hidden="true"></i>
-                <i class="fa fa-plus fa-stack-1x" aria-hidden="true"></i>
-            </span></p>
-            <div class="comentario">
-                <img class="fotoPerfil" src="examples/ud1/ex2/img/jenny.jpg" alt="">
-                <div class="textoComentario comentarioUnaLinea">
-                    <p><span id="nombreAutor">jenny.lmk</span> 🖤🖤🖤</p>
-                </div>
-                <div class="infoComentario">
-                    <span class="tiempoPublicacion">1 sem </span><span class="responder">Responder</span>
-                </div>
-                
-            </div>
-        </div>
-
-        <div id="iconos">
-            <p id="conjuntoIconos"><span><i class="fa fa-heart-o separacionDeIconos" aria-hidden="true"></i></span>
-            <span><i class="fa fa-comment-o separacionDeIconos" aria-hidden="true"></i></span>
-            <span><i class="fa fa-paper-plane-o separacionDeIconos" aria-hidden="true"></i></span>
-            <span id="marcador"><i class="fa fa-bookmark-o" aria-hidden="true"></i></span></p>
-        </div>
-        <p id="infoMeGusta">1.432.352 Me gusta</p>
-        <p class="tiempoPublicacionPost">10 DE ENERO</p>
-        <div id="iniciarSesion">
-            <p ><a href="">Inicia sesion</a> para indicar que te gusta o <br>comentar.</p>
-        </div>
-        
-    </div>
-</div>
+</html>

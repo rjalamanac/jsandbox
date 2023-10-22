@@ -3,241 +3,76 @@
     "ud": [
       {
         "numero": "1",
-        "titulo": "Repaso HTML y CSS",
+        "titulo": "Introducción a JavaScript, integración con HTML",
         "ejemplos": {
           "ej": [
             {
               "numero": "1",
-              "info": "Repaso de CSS: Test inicial"
+              "info": "Manipulación de Elementos HTML"
             },
             {
               "numero": "2",
-              "info": "HTML y CSS: Instagram Rosalía"
-            },
-            {
-              "numero": "3",
-              "info": "HTML y CSS: Plantilla",
-              "enunciado": "Debes crear....."
-            },
-            {
-              "numero": "4",
-              "info": "HTML y CSS: Formulario sobrio"
-            },
-            {
-              "numero": "5",
-              "info": "HTML y CSS: Formulario de contacto"
-            },
-            {
-              "numero": "6",
-              "info": "HTML y CSS: Formulario bonito"
-            },
-			            {
-              "numero": "7",
-              "info": "Prueba de depuración"
+              "info": "Validación de Formulario"
             }
           ]
         }
       },
       {
         "numero": "2",
-        "titulo": "Utilidades y Multimedia",
+        "titulo": "Herramientas de programación para JavaScript",
         "ejemplos": {
           "ej": [
             {
               "numero": "1",
-              "info": "Menú desplegable sencillo"
+              "info": "Uso de la Consola del Navegador"
             },
             {
               "numero": "2",
-              "info": "Menú desplegable complicado"
-            },
-            {
-              "numero": "3",
-              "info": "Video"
-            },
-            {
-              "numero": "4",
-              "info": "Video a pantalla completa"
+              "info": "Depuración de Código JavaScript"
             }
           ]
         }
       },
       {
         "numero": "3",
-        "titulo": "Transiciones y transformaciones",
+        "titulo": "Características del lenguaje JavaScript",
         "ejemplos": {
           "ej": [
             {
               "numero": "1",
-              "info": "Ejemplos"
-            },
-            {
-              "numero": "4",
-              "info": "Secciones"
-            },
-            {
-              "numero": "3",
-              "info": "Ríos"
+              "info": "Uso de Variables y Tipos de Datos en JavaScript"
             },
             {
               "numero": "2",
-              "info": "Ficha fruta"
-            },
-            {
-              "numero": "5",
-              "info": "Cómic"
-            },
-            {
-              "numero": "6",
-              "info": "Puzzle"
+              "info": "Manipulación de Cadenas en JavaScript"
             }
           ]
         }
       },
       {
         "numero": "4",
-        "titulo": "Animacion 2D",
+        "titulo": "Modelo de objetos predefinidos en JavaScript",
         "ejemplos": {
           "ej": [
             {
-              "numero": "10",
-              "info": "Animación gota de agua"
+              "numero": "1",
+              "info": "Trabajando con Objetos en JavaScript"
             },
             {
               "numero": "2",
-              "info": "Timer"
-            },
-            {
-              "numero": "3",
-              "info": "Papelera"
-            },
-            {
-              "numero": "4",
-              "info": "Circuito eléctrico"
-            },
-            {
-              "numero": "5",
-              "info": "Accidente"
-            },
-            {
-              "numero": "6",
-              "info": "Circuito"
-            },
-            {
-              "numero": "7",
-              "info": "Circuito2"
-            },
-            {
-              "numero": "8",
-              "info": "Slider"
-            },
-            {
-              "numero": "9",
-              "info": "Loader"
-            },
-            {
-              "numero": "11",
-              "info": "Carta"
-            },
-            {
-              "numero": "12",
-              "info": "Baraja"
-            },
-            {
-              "numero": "13",
-              "info": "Carta informativa"
-            },
-            {
-              "numero": "14",
-              "info": "Información Piso"
+              "info": "Trabajando con Arrays en JavaScript"
             }
           ]
         }
       },
       {
         "numero": "5",
-        "titulo": "Parallax",
+        "titulo": "Programación con estructuras definidas por el usuario",
         "ejemplos": {
           "ej": [
             {
               "numero": "1",
-              "info": "Parallax sencillo de comida "
-            },
-            {
-              "numero": "3",
-              "info": "Parallax de comida "
-            },
-            {
-              "numero": "2",
-              "info": "Parallax Firewatch"
-            }
-          ]
-        }
-      },
-      {
-        "numero": "6",
-        "titulo": "Animación 3D",
-        "ejemplos": {
-          "ej": [
-            {
-              "numero": "2",
-              "info": "Tetraedro"
-            },
-            {
-              "numero": "3",
-              "info": "Teseracto"
-            },
-            {
-              "numero": "1",
-              "info": "Dado "
-            }
-          ]
-        }
-      },
-      {
-        "numero": "7",
-        "titulo": "Canvas",
-        "ejemplos": {
-          "ej": [
-            {
-              "numero": "1",
-              "info": "Ejercicio Halloween "
-            },
-            {
-              "numero": "2",
-              "info": "Ejercicio Navidad"
-            },
-            {
-              "numero": "3",
-              "info": "Ejercicio BoxLayout"
-            },
-            {
-              "numero": "4",
-              "info": "Ejercicio Bola Navidad"
-            }
-          ]
-        }
-      },
-      {
-        "numero": "8",
-        "titulo": "Especiales",
-        "ejemplos": {
-          "ej": [
-            {
-              "numero": "1",
-              "info": "Ejercicio Halloween "
-            },
-            {
-              "numero": "2",
-              "info": "Ejercicio Navidad"
-            },
-            {
-              "numero": "3",
-              "info": "Ejercicio BoxLayout"
-            },
-            {
-              "numero": "4",
-              "info": "Ejercicio Bola Navidad"
+              "info": "Creación de una Clase en JavaScript"
             }
           ]
         }
